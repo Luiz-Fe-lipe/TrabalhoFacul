@@ -23,6 +23,7 @@ namespace TrabalhoFacul
         private string data;
 
         public MySqlConnection Conexao {  get; set; }
+
         string data_source = "datasource=localhost;database=trabalhovisualstudio;username=root;password=;";
 
         public FormCadastro()
