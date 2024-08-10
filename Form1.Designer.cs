@@ -101,6 +101,7 @@
             this.btnFormCadastro.TabIndex = 20;
             this.btnFormCadastro.Text = "Cadastro";
             this.btnFormCadastro.UseVisualStyleBackColor = true;
+            this.btnFormCadastro.Click += new System.EventHandler(this.btnFormCadastro_Click);
             // 
             // label2
             // 

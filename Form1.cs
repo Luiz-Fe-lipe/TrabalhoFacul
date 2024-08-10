@@ -16,5 +16,19 @@ namespace TrabalhoFacul
         {
             InitializeComponent();
         }
+
+        //Fiz para testar a tela de Cadastro
+        private void AbrirCadastro()
+        {
+            FormCadastro formcadastro = new FormCadastro();
+            formcadastro.Show();
+        }
+
+
+        private void btnFormCadastro_Click(object sender, EventArgs e)
+        {
+            AbrirCadastro();
+            this.Hide();
+        }
     }
 }
