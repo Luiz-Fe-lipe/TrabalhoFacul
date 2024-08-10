@@ -124,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.SystemColors.MenuText;
             this.ClientSize = new System.Drawing.Size(410, 230);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -135,6 +135,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblRu);
             this.Controls.Add(this.txtRuLogin);
+            this.ForeColor = System.Drawing.Color.Firebrick;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Login";
