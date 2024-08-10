@@ -23,8 +23,12 @@ namespace TrabalhoFacul
         private string data;
 
         public MySqlConnection Conexao {  get; set; }
+<<<<<<< HEAD
 
         string data_source = "datasource=localhost;database=trabalhovisualstudio;username=root;password=;";
+=======
+        string data_source = "datasource=databasepv.cxcs0i2uoy4j.us-east-1.rds.amazonaws.com;database=cadastros;username=admin;password=manga5661;";
+>>>>>>> 46cb17cbaf2486601d1155c1913bc69adec76640
 
         public FormCadastro()
         {
@@ -83,7 +87,7 @@ namespace TrabalhoFacul
             {
                 Conexao = new MySqlConnection(data_source);
 
-                String sql_insert = "INSERT INTO usuario (ru, nome, email, data, sobrenome, telefone, sexo)" +
+                String sql_insert = "INSERT INTO usuario (ru, nome, email, dt_nascimento, sobrenome, telefone, sexo)" +
                     " VALUES " +
                     "( '" + ru + "','" + nome + "','" + email + "','"+ data + "','"
                     + sobrenome + "' , '" + telefone + "', '" + sexo + "')";
