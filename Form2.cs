@@ -81,7 +81,7 @@ namespace TrabalhoFacul
             }
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private void btCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
