@@ -16,5 +16,10 @@ namespace TrabalhoFacul
         {
             InitializeComponent();
         }
+
+        private void lblRu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
