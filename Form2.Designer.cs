@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastro));
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.rbtFeminino = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTelefoneCadastro = new System.Windows.Forms.TextBox();
@@ -49,7 +48,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rbtMasculino = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
+            this.gbSexo = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gbSexo.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -61,19 +62,10 @@
             this.label7.TabIndex = 32;
             this.label7.Text = "Dados";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(531, 42);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Sexo";
-            // 
             // rbtFeminino
             // 
             this.rbtFeminino.AutoSize = true;
-            this.rbtFeminino.Location = new System.Drawing.Point(534, 87);
+            this.rbtFeminino.Location = new System.Drawing.Point(17, 51);
             this.rbtFeminino.Name = "rbtFeminino";
             this.rbtFeminino.Size = new System.Drawing.Size(67, 17);
             this.rbtFeminino.TabIndex = 30;
@@ -217,7 +209,7 @@
             // rbtMasculino
             // 
             this.rbtMasculino.AutoSize = true;
-            this.rbtMasculino.Location = new System.Drawing.Point(534, 61);
+            this.rbtMasculino.Location = new System.Drawing.Point(17, 19);
             this.rbtMasculino.Name = "rbtMasculino";
             this.rbtMasculino.Size = new System.Drawing.Size(73, 17);
             this.rbtMasculino.TabIndex = 36;
@@ -236,20 +228,29 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btLimpar_Click);
             // 
+            // gbSexo
+            // 
+            this.gbSexo.Controls.Add(this.rbtFeminino);
+            this.gbSexo.Controls.Add(this.rbtMasculino);
+            this.gbSexo.Location = new System.Drawing.Point(503, 45);
+            this.gbSexo.Name = "gbSexo";
+            this.gbSexo.Size = new System.Drawing.Size(106, 89);
+            this.gbSexo.TabIndex = 38;
+            this.gbSexo.TabStop = false;
+            this.gbSexo.Text = "Sexo";
+            // 
             // FormCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(621, 300);
+            this.Controls.Add(this.gbSexo);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.rbtMasculino);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.rbtFeminino);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtTelefoneCadastro);
             this.Controls.Add(this.label4);
@@ -266,6 +267,8 @@
             this.Name = "FormCadastro";
             this.Text = "Cadastro";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.gbSexo.ResumeLayout(false);
+            this.gbSexo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,7 +278,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton rbtFeminino;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTelefoneCadastro;
@@ -293,5 +295,6 @@
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.RadioButton rbtMasculino;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox gbSexo;
     }
 }
