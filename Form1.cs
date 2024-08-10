@@ -24,7 +24,6 @@ namespace TrabalhoFacul
             formcadastro.Show();
         }
 
-
         private void btnFormCadastro_Click(object sender, EventArgs e)
         {
             AbrirCadastro();
