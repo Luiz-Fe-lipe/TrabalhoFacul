@@ -49,6 +49,9 @@
             this.rbtMasculino = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.gbSexo = new System.Windows.Forms.GroupBox();
+            this.txtSenhaCadastro = new System.Windows.Forms.TextBox();
+            this.btFechar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbSexo.SuspendLayout();
             this.SuspendLayout();
@@ -178,7 +181,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(346, 207);
+            this.btnCadastrar.Location = new System.Drawing.Point(250, 250);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(72, 26);
             this.btnCadastrar.TabIndex = 34;
@@ -188,7 +191,7 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(292, 246);
+            this.btnVoltar.Location = new System.Drawing.Point(334, 250);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(73, 26);
             this.btnVoltar.TabIndex = 35;
@@ -220,7 +223,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(235, 207);
+            this.button1.Location = new System.Drawing.Point(161, 250);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 26);
             this.button1.TabIndex = 37;
@@ -239,12 +242,44 @@
             this.gbSexo.TabStop = false;
             this.gbSexo.Text = "Sexo";
             // 
+            // txtSenhaCadastro
+            // 
+            this.txtSenhaCadastro.Location = new System.Drawing.Point(161, 213);
+            this.txtSenhaCadastro.Name = "txtSenhaCadastro";
+            this.txtSenhaCadastro.PasswordChar = 'k';
+            this.txtSenhaCadastro.Size = new System.Drawing.Size(146, 20);
+            this.txtSenhaCadastro.TabIndex = 39;
+            this.txtSenhaCadastro.TextChanged += new System.EventHandler(this.txtSenhaCadastro_TextChanged);
+            // 
+            // btFechar
+            // 
+            this.btFechar.Location = new System.Drawing.Point(425, 250);
+            this.btFechar.Name = "btFechar";
+            this.btFechar.Size = new System.Drawing.Size(71, 26);
+            this.btFechar.TabIndex = 40;
+            this.btFechar.Text = "Fechar";
+            this.btFechar.UseVisualStyleBackColor = true;
+            this.btFechar.Click += new System.EventHandler(this.btFechar_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(158, 197);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.TabIndex = 41;
+            this.label6.Text = "Senha";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
             // FormCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(621, 300);
+            this.ClientSize = new System.Drawing.Size(628, 293);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btFechar);
+            this.Controls.Add(this.txtSenhaCadastro);
             this.Controls.Add(this.gbSexo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnVoltar);
@@ -266,6 +301,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCadastro";
             this.Text = "Cadastro";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormCadastro_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbSexo.ResumeLayout(false);
             this.gbSexo.PerformLayout();
@@ -296,5 +332,8 @@
         private System.Windows.Forms.RadioButton rbtMasculino;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox gbSexo;
+        private System.Windows.Forms.TextBox txtSenhaCadastro;
+        private System.Windows.Forms.Button btFechar;
+        private System.Windows.Forms.Label label6;
     }
 }
