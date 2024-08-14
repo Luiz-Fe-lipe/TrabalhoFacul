@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -82,6 +83,26 @@ namespace TrabalhoFacul
             }
         }
 
+        public static Boolean tokenAcesso(string token)
+        {
+            if (string.IsNullOrEmpty(token))
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private void txtProfessorCadastro_TextChanged(object sender, EventArgs e)
+        {
+            if (txtProfessorCadastro != null)
+            {
+             
+            }
+
+        }
+
+
         private void btCadastrar_Click(object sender, EventArgs e)
         {
             try
@@ -156,5 +177,37 @@ namespace TrabalhoFacul
             Application.Exit();
         }
 
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+
+            try
+            {
+                Conexao = new MySqlConnection(data_source);
+
+                String sql_select = "SELECT * FROM cadastros";
+
+                MySqlCommand comando = new MySqlCommand(sql_select, Conexao);
+
+                Conexao.Open();
+
+                comando.ExecuteReader();
+
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            finally
+            {
+                Conexao.Close();
+            }
+
+        }
     }
 }
