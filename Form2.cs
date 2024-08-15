@@ -24,6 +24,7 @@ namespace TrabalhoFacul
         private string telefone;
         private string data;
         private string senha;
+        private int tokenAcesso;
 
         public MySqlConnection Conexao { get; set; }
         string data_source = "datasource=databasepv.cxcs0i2uoy4j.us-east-1.rds.amazonaws.com;database=cadastros;username=admin;password=manga5661;";
@@ -84,16 +85,26 @@ namespace TrabalhoFacul
             }
         }
 
+        private void txtProfessorCadastro_TextChanged(object sender, EventArgs e)
+        {
+            if (txtProfessorCadastro.Text == "55555")
+            {
+                tokenAcesso = 1;
+            }
+            else
+                tokenAcesso = 0;
+        }
+
         private void btCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
                 Conexao = new MySqlConnection(data_source);
 
-                String sql_insert = "INSERT INTO usuario (ru, nome, email, dt_nascimento, sobrenome, telefone, sexo, senha)" +
+                String sql_insert = "INSERT INTO usuario (ru, nome, email, dt_nascimento, sobrenome, telefone, sexo, senha, professor)" +
                     " VALUES " +
                     "( '" + ru + "','" + nome + "','" + email + "','"+ data + "','"
-                    + sobrenome + "' , '" + telefone + "', '" + sexo + "' , '" + senha + "')";
+                    + sobrenome + "' , '" + telefone + "', '" + sexo + "' , '" + senha + "', '" + tokenAcesso + "')";
 
                 MySqlCommand comando = new MySqlCommand(sql_insert, Conexao);
 
@@ -156,6 +167,11 @@ namespace TrabalhoFacul
         private void btFechar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
