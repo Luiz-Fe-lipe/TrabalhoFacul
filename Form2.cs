@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+
 
 namespace TrabalhoFacul
 {
@@ -22,13 +24,8 @@ namespace TrabalhoFacul
         private string telefone;
         private string data;
 
-        public MySqlConnection Conexao {  get; set; }
-<<<<<<< HEAD
-
-        string data_source = "datasource=localhost;database=trabalhovisualstudio;username=root;password=;";
-=======
+        public MySqlConnection Conexao { get; set; }
         string data_source = "datasource=databasepv.cxcs0i2uoy4j.us-east-1.rds.amazonaws.com;database=cadastros;username=admin;password=manga5661;";
->>>>>>> 46cb17cbaf2486601d1155c1913bc69adec76640
 
         public FormCadastro()
         {
