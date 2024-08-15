@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -23,9 +24,11 @@ namespace TrabalhoFacul
         private string sobrenome;
         private string telefone;
         private string data;
+        private string senha;
 
         public MySqlConnection Conexao { get; set; }
         string data_source = "datasource=databasepv.cxcs0i2uoy4j.us-east-1.rds.amazonaws.com;database=cadastros;username=admin;password=manga5661;";
+
 
         public FormCadastro()
         {
@@ -69,6 +72,10 @@ namespace TrabalhoFacul
                 sexo = "Feminino";
             }
         }
+        private void txtSenhaCadastro_TextChanged(object sender, EventArgs e)
+        {
+            senha = txtSenhaCadastro.Text;
+        }
 
         private void rbtMasculino_CheckedChanged(object sender, EventArgs e)
         {
@@ -78,16 +85,36 @@ namespace TrabalhoFacul
             }
         }
 
+        public static Boolean tokenAcesso(string token)
+        {
+            if (string.IsNullOrEmpty(token))
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private void txtProfessorCadastro_TextChanged(object sender, EventArgs e)
+        {
+            if (txtProfessorCadastro != null)
+            {
+             
+            }
+
+        }
+
+
         private void btCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
                 Conexao = new MySqlConnection(data_source);
 
-                String sql_insert = "INSERT INTO usuario (ru, nome, email, dt_nascimento, sobrenome, telefone, sexo)" +
+                String sql_insert = "INSERT INTO usuario (ru, nome, email, dt_nascimento, sobrenome, telefone, sexo, senha)" +
                     " VALUES " +
                     "( '" + ru + "','" + nome + "','" + email + "','"+ data + "','"
-                    + sobrenome + "' , '" + telefone + "', '" + sexo + "')";
+                    + sobrenome + "' , '" + telefone + "', '" + sexo + "' , '" + senha + "')";
 
                 MySqlCommand comando = new MySqlCommand(sql_insert, Conexao);
 
@@ -122,6 +149,7 @@ namespace TrabalhoFacul
             txtRuCadastro.Clear();
             rbtFeminino.Checked = false;
             rbtMasculino.Checked = false;
+            txtSenhaCadastro.Clear() ;
         }
 
         private void btLimpar_Click(object sender, EventArgs e)
@@ -134,6 +162,54 @@ namespace TrabalhoFacul
             Form1 Form1 = new Form1();
             Form1.Show();
             this.Hide();
+        }
+
+        private void FormCadastro_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btFechar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+
+            try
+            {
+                Conexao = new MySqlConnection(data_source);
+
+                String sql_select = "SELECT * FROM cadastros";
+
+                MySqlCommand comando = new MySqlCommand(sql_select, Conexao);
+
+                Conexao.Open();
+
+                comando.ExecuteReader();
+
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            finally
+            {
+                Conexao.Close();
+            }
+
         }
     }
 }

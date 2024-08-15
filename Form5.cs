@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace TrabalhoFacul
 {
-    public partial class Form5 : Form
+    public partial class FormMenu : Form
     {
-        public Form5()
+        public FormMenu()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
