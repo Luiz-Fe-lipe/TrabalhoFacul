@@ -87,12 +87,7 @@ namespace TrabalhoFacul
 
         private void txtProfessorCadastro_TextChanged(object sender, EventArgs e)
         {
-            if (txtProfessorCadastro.Text == "55555")
-            {
-                tokenAcesso = 1;
-            }
-            else
-                tokenAcesso = 0;
+            tokenAcesso = Convert.ToInt32(txtProfessorCadastro.Text);
         }
 
         private void btCadastrar_Click(object sender, EventArgs e)
@@ -101,7 +96,7 @@ namespace TrabalhoFacul
             {
                 Conexao = new MySqlConnection(data_source);
 
-                String sql_insert = "INSERT INTO usuario (ru, nome, email, dt_nascimento, sobrenome, telefone, sexo, senha, professor)" +
+                String sql_insert = "INSERT INTO usuario (ru, nome, email, dt_nascimento, sobrenome, telefone, sexo, senha, token)" +
                     " VALUES " +
                     "( '" + ru + "','" + nome + "','" + email + "','"+ data + "','"
                     + sobrenome + "' , '" + telefone + "', '" + sexo + "' , '" + senha + "', '" + tokenAcesso + "')";
