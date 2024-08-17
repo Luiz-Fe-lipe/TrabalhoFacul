@@ -98,7 +98,7 @@ namespace TrabalhoFacul
 
         private void btCadastrar_Click(object sender, EventArgs e)
         {
-/*            try
+            try
             {
                 Conexao = new MySqlConnection(data_source);
 
@@ -130,7 +130,7 @@ namespace TrabalhoFacul
             {
                 Conexao.Close();
             }
-*/
+
             try
                 {
                     Conexao = new MySqlConnection(data_source);
