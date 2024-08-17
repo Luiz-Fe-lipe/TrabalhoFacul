@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace TrabalhoFacul
@@ -24,7 +25,7 @@ namespace TrabalhoFacul
         private string telefone;
         private string data;
         private string senha;
-        private int tokenAcesso;
+        private string tokenAcesso;
 
         public MySqlConnection Conexao { get; set; }
         string data_source = "datasource=databasepv.cxcs0i2uoy4j.us-east-1.rds.amazonaws.com;database=cadastros;username=admin;password=manga5661;";
@@ -87,30 +88,38 @@ namespace TrabalhoFacul
 
         private void txtProfessorCadastro_TextChanged(object sender, EventArgs e)
         {
-            tokenAcesso = Convert.ToInt32(txtProfessorCadastro.Text);
+            if (txtProfessorCadastro.Text == "55555")
+            {
+                tokenAcesso = "professor";
+            }
+            else
+                tokenAcesso = "aluno";
         }
 
         private void btCadastrar_Click(object sender, EventArgs e)
         {
-            try
+/*            try
             {
                 Conexao = new MySqlConnection(data_source);
 
-                String sql_insert = "INSERT INTO usuario (ru, nome, email, dt_nascimento, sobrenome, telefone, sexo, senha, token)" +
-                    " VALUES " +
-                    "( '" + ru + "','" + nome + "','" + email + "','"+ data + "','"
-                    + sobrenome + "' , '" + telefone + "', '" + sexo + "' , '" + senha + "', '" + tokenAcesso + "')";
+                string sql_cont = "SELECT COUNT(1) FROM usuario WHERE ru = @ru";
 
-                MySqlCommand comando = new MySqlCommand(sql_insert, Conexao);
+                MySqlCommand cmd = new MySqlCommand(sql_cont, Conexao);
+                cmd.Parameters.AddWithValue("@ru", ru);
 
-                Conexao.Open();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-                comando.ExecuteReader();
+                if (count > 0)
+                {
+                    Console.WriteLine("RU já existe.");
+                }
 
-                MessageBox.Show("Cadastro Feito com sucesso");
+                else
+                {
+                    Console.WriteLine("RU disponível.");
+                }
 
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -121,8 +130,102 @@ namespace TrabalhoFacul
             {
                 Conexao.Close();
             }
+*/
+            try
+                {
+                    Conexao = new MySqlConnection(data_source);
 
-        }
+                    String sql_insert_usuario = "INSERT INTO usuario (email, dt_nascimento,telefone ,sexo, senha, token)" +
+                        " VALUES " +
+                        "( '" + email + "','" + data + "'," +
+                        " '" + telefone + "', '" + sexo + "' , '" + senha + "','" + tokenAcesso + "')";
+
+                    MySqlCommand comando = new MySqlCommand(sql_insert_usuario, Conexao);
+
+                    Conexao.Open();
+
+                    comando.ExecuteReader();
+
+
+
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+
+                finally
+                {
+                    Conexao.Close();
+                }
+
+                if (tokenAcesso == "professor")
+                {
+                    try
+                    {
+                        Conexao = new MySqlConnection(data_source);
+
+                        String sql_insert_professor = "INSERT INTO usuario (ru, tipoCadastro, nome, sobrenome)" +
+                            " VALUES " +
+                            "( '" + ru + "','" + tokenAcesso + "','" + nome + "', '" + sobrenome + "')";
+
+                        MySqlCommand comando = new MySqlCommand(sql_insert_professor, Conexao);
+
+                        Conexao.Open();
+
+                        comando.ExecuteReader();
+
+                        MessageBox.Show("Cadastro Feito com sucesso");
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+
+                    finally
+                    {
+                        Conexao.Close();
+                    }
+
+                }
+
+                else
+                {
+                    try
+                    {
+                        Conexao = new MySqlConnection(data_source);
+
+                        String sql_insert_aluno = "INSERT INTO usuario (ru, nome, sobrenome)" +
+                            " VALUES " +
+                            "( '" + ru + "','" + nome + "', '" + sobrenome + "')";
+
+                        MySqlCommand comando = new MySqlCommand(sql_insert_aluno, Conexao);
+
+                        Conexao.Open();
+
+                        comando.ExecuteReader();
+
+                        MessageBox.Show("Cadastro Feito com sucesso");
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+
+                    finally
+                    {
+                        Conexao.Close();
+                    }
+                }
+            }
 
         private void allClear()
         {
