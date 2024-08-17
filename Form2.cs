@@ -13,6 +13,7 @@ using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
+
 namespace TrabalhoFacul
 {
     public partial class FormCadastro : Form
