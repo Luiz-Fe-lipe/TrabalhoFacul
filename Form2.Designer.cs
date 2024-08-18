@@ -161,14 +161,14 @@
             this.txtRuCadastro.Location = new System.Drawing.Point(6, 136);
             this.txtRuCadastro.Name = "txtRuCadastro";
             this.txtRuCadastro.Size = new System.Drawing.Size(149, 20);
-            this.txtRuCadastro.TabIndex = 59;
+            this.txtRuCadastro.TabIndex = 50;
             // 
             // btnCadastrar
             // 
             this.btnCadastrar.Location = new System.Drawing.Point(163, 234);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(72, 36);
-            this.btnCadastrar.TabIndex = 62;
+            this.btnCadastrar.TabIndex = 60;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btCadastrar_Click);
@@ -178,7 +178,7 @@
             this.btnVoltar.Location = new System.Drawing.Point(162, 279);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(73, 36);
-            this.btnVoltar.TabIndex = 64;
+            this.btnVoltar.TabIndex = 62;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -200,7 +200,7 @@
             this.rbtMasculino.Location = new System.Drawing.Point(11, 17);
             this.rbtMasculino.Name = "rbtMasculino";
             this.rbtMasculino.Size = new System.Drawing.Size(73, 17);
-            this.rbtMasculino.TabIndex = 60;
+            this.rbtMasculino.TabIndex = 59;
             this.rbtMasculino.TabStop = true;
             this.rbtMasculino.Text = "Masculino";
             this.rbtMasculino.UseVisualStyleBackColor = true;
@@ -211,7 +211,7 @@
             this.button1.Location = new System.Drawing.Point(239, 234);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 36);
-            this.button1.TabIndex = 63;
+            this.button1.TabIndex = 61;
             this.button1.Text = "Limpar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btLimpar_Click);
@@ -241,7 +241,7 @@
             this.btFechar.Location = new System.Drawing.Point(240, 279);
             this.btFechar.Name = "btFechar";
             this.btFechar.Size = new System.Drawing.Size(71, 36);
-            this.btFechar.TabIndex = 65;
+            this.btFechar.TabIndex = 63;
             this.btFechar.Text = "Fechar";
             this.btFechar.UseVisualStyleBackColor = true;
             this.btFechar.Click += new System.EventHandler(this.btFechar_Click);
@@ -295,7 +295,7 @@
             this.dtCadastro.Location = new System.Drawing.Point(158, 26);
             this.dtCadastro.Name = "dtCadastro";
             this.dtCadastro.Size = new System.Drawing.Size(155, 20);
-            this.dtCadastro.TabIndex = 43;
+            this.dtCadastro.TabIndex = 54;
             this.dtCadastro.Value = new System.DateTime(2024, 8, 18, 11, 9, 10, 0);
             this.dtCadastro.ValueChanged += new System.EventHandler(this.dtCadastro_ValueChanged);
             // 
