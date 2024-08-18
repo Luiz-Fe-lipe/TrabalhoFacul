@@ -38,6 +38,8 @@ namespace TrabalhoFacul
         public FormCadastro()
         {
             InitializeComponent();
+
+            cbCursos.DropDownStyle = ComboBoxStyle.DropDownList;
             LoadComboBox();
 
             dtCadastro.Format = DateTimePickerFormat.Custom;
@@ -194,7 +196,10 @@ namespace TrabalhoFacul
             txtRuCadastro.Clear();
             rbtFeminino.Checked = false;
             rbtMasculino.Checked = false;
-            txtSenhaCadastro.Clear() ;
+            txtSenhaCadastro.Clear();
+            txtProfessorCadastro.Clear();
+            cbCursos.SelectedIndex = -1;
+            dtCadastro.Value = DateTime.Now;
         }
 
         private void btLimpar_Click(object sender, EventArgs e)
