@@ -10,7 +10,10 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Globalization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Google.Protobuf.WellKnownTypes;
+using System.Diagnostics.Eventing.Reader;
 
 
 
@@ -24,9 +27,9 @@ namespace TrabalhoFacul
         private string email;
         private string sobrenome;
         private string telefone;
-        private string data;
         private string senha;
-        private string tokenAcesso;
+        private int tokenAcesso;
+        private string curso;
 
         public MySqlConnection Conexao { get; set; }
         string data_source = "datasource=databasepv.cxcs0i2uoy4j.us-east-1.rds.amazonaws.com;database=cadastros;username=admin;password=manga5661;";
@@ -35,11 +38,29 @@ namespace TrabalhoFacul
         public FormCadastro()
         {
             InitializeComponent();
+            LoadComboBox();
+
+            dtCadastro.Format = DateTimePickerFormat.Custom;
+            dtCadastro.CustomFormat = "dd/mm/yyyy";
+            dtCadastro.Value=DateTime.Now;
+
+            txtRuCadastro.KeyPress += new KeyPressEventHandler(txtRuCadastro_KeyPress);
         }
 
-        private void txtRuCadastro_TextChanged(object sender, EventArgs e)
+
+        private void txtRuCadastro_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ru = txtRuCadastro.Text;
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+
+                MessageBox.Show("Somente Numeros");
+            }
+            else
+            {
+                ru = txtRuCadastro.Text;
+            }
+            
         }
 
         private void txtNomeCadastro_TextChanged(object sender, EventArgs e)
@@ -50,11 +71,6 @@ namespace TrabalhoFacul
         private void txtEmailCadastro_TextChanged(object sender, EventArgs e)
         {
             email= txtEmailCadastro.Text;
-        }
-
-        private void txtDataCadastro_TextChanged(object sender, EventArgs e)
-        {
-            data = txtDataCadastro.Text;
         }
 
         private void txtSobrenomeCadastro_TextChanged(object sender, EventArgs e)
@@ -89,71 +105,77 @@ namespace TrabalhoFacul
 
         private void txtProfessorCadastro_TextChanged(object sender, EventArgs e)
         {
-            if (txtProfessorCadastro.Text == "55555")
+            if (txtProfessorCadastro.Text != "0")
             {
-                tokenAcesso = "professor";
+                tokenAcesso = 1;
             }
             else
-                tokenAcesso = "aluno";
+                tokenAcesso = 0;
+        }
+        private void cbCursos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            curso = cbCursos.Text;
         }
 
-        private void btCadastrar_Click(object sender, EventArgs e)
+        public void LoadComboBox()
         {
             try
             {
                 Conexao = new MySqlConnection(data_source);
 
-                string sql_cont = "SELECT COUNT(1) FROM usuario WHERE ru = @ru";
+                Conexao.Open();
 
-                MySqlCommand cmd = new MySqlCommand(sql_cont, Conexao);
-                cmd.Parameters.AddWithValue("@ru", ru);
+                String sql_select_cursos = "SELECT curso FROM curso";
 
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                MySqlCommand comando = new MySqlCommand(sql_select_cursos, Conexao);
+                MySqlDataReader reader = comando.ExecuteReader();
 
-                if (count > 0)
+                while (reader.Read())
                 {
-                    Console.WriteLine("RU já existe.");
+                    cbCursos.Items.Add(reader["curso"].ToString());
                 }
 
-                else
-                {
-                    Console.WriteLine("RU disponível.");
-                }
+                reader.Close();
 
             }
+
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Erro: " + ex.Message);
             }
-
 
             finally
             {
                 Conexao.Close();
             }
+        }
+
+        private void btCadastrar_Click(object sender, EventArgs e)
+        {
+            DateTime dtNascimetoCadastro = dtCadastro.Value;
+            string dtNascimento = dtNascimetoCadastro.ToString("dd/mm/yyyy", CultureInfo.InvariantCulture);
 
             try
                 {
                     Conexao = new MySqlConnection(data_source);
 
-                    String sql_insert_usuario = "INSERT INTO usuario (email, dt_nascimento,telefone ,sexo, senha, token)" +
+                    String sql_insert_usuario = "INSERT INTO usuario (ru, nome, sobrenome, senha, token, email, dt_nascimento, telefone, sexo, curso)" +
                         " VALUES " +
-                        "( '" + email + "','" + data + "'," +
-                        " '" + telefone + "', '" + sexo + "' , '" + senha + "','" + tokenAcesso + "')";
+                        "( '" + ru + "','" + nome + "','" + sobrenome + "','" + senha + "','" + tokenAcesso + 
+                        "','" + email + "','" + dtNascimento + "','" + telefone + "','" + sexo + "','" + curso + "')";
 
                     MySqlCommand comando = new MySqlCommand(sql_insert_usuario, Conexao);
 
                     Conexao.Open();
 
                     comando.ExecuteReader();
-
-
+                    MessageBox.Show("Cadastro feito com sucesso");
 
                 }
 
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Este RU já existe");
                 }
 
 
@@ -161,76 +183,10 @@ namespace TrabalhoFacul
                 {
                     Conexao.Close();
                 }
-
-                if (tokenAcesso == "professor")
-                {
-                    try
-                    {
-                        Conexao = new MySqlConnection(data_source);
-
-                        String sql_insert_professor = "INSERT INTO usuario (ru, tipoCadastro, nome, sobrenome)" +
-                            " VALUES " +
-                            "( '" + ru + "','" + tokenAcesso + "','" + nome + "', '" + sobrenome + "')";
-
-                        MySqlCommand comando = new MySqlCommand(sql_insert_professor, Conexao);
-
-                        Conexao.Open();
-
-                        comando.ExecuteReader();
-
-                        MessageBox.Show("Cadastro Feito com sucesso");
-
-                    }
-
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
-
-                    finally
-                    {
-                        Conexao.Close();
-                    }
-
-                }
-
-                else
-                {
-                    try
-                    {
-                        Conexao = new MySqlConnection(data_source);
-
-                        String sql_insert_aluno = "INSERT INTO usuario (ru, nome, sobrenome)" +
-                            " VALUES " +
-                            "( '" + ru + "','" + nome + "', '" + sobrenome + "')";
-
-                        MySqlCommand comando = new MySqlCommand(sql_insert_aluno, Conexao);
-
-                        Conexao.Open();
-
-                        comando.ExecuteReader();
-
-                        MessageBox.Show("Cadastro Feito com sucesso");
-
-                    }
-
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
-
-                    finally
-                    {
-                        Conexao.Close();
-                    }
-                }
             }
 
         private void allClear()
         {
-            txtDataCadastro.Clear();
             txtEmailCadastro.Clear();
             txtNomeCadastro.Clear();
             txtSobrenomeCadastro.Clear();
@@ -258,7 +214,7 @@ namespace TrabalhoFacul
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void lblSenha_Click(object sender, EventArgs e)
         {
 
         }
@@ -268,12 +224,17 @@ namespace TrabalhoFacul
             Application.Exit();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void lblTelefone_Click(object sender, EventArgs e)
         {
 
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtCadastro_ValueChanged(object sender, EventArgs e)
         {
 
         }
