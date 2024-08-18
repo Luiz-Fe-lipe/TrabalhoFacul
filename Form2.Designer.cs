@@ -258,7 +258,7 @@
             // 
             // gbDados
             // 
-            this.gbDados.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.gbDados.BackColor = System.Drawing.Color.Transparent;
             this.gbDados.Controls.Add(this.dtCadastro);
             this.gbDados.Controls.Add(this.label7);
             this.gbDados.Controls.Add(this.cbCursos);
@@ -340,8 +340,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SlateBlue;
-            this.ClientSize = new System.Drawing.Size(326, 331);
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.ClientSize = new System.Drawing.Size(327, 331);
             this.Controls.Add(this.gbDados);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
