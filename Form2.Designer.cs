@@ -111,7 +111,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 13);
             this.label3.TabIndex = 24;
-            this.label3.Text = "Dara de Nascimento";
+            this.label3.Text = "Data de Nascimento";
             // 
             // label2
             // 

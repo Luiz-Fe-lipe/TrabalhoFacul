@@ -14,7 +14,7 @@ using System.Globalization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Google.Protobuf.WellKnownTypes;
 using System.Diagnostics.Eventing.Reader;
-
+using K4os.Compression.LZ4.Streams.Adapters;
 
 
 namespace TrabalhoFacul
@@ -34,7 +34,6 @@ namespace TrabalhoFacul
         public MySqlConnection Conexao { get; set; }
         string data_source = "datasource=databasepv.cxcs0i2uoy4j.us-east-1.rds.amazonaws.com;database=cadastros;username=admin;password=manga5661;";
 
-
         public FormCadastro()
         {
             InitializeComponent();
@@ -49,7 +48,6 @@ namespace TrabalhoFacul
             txtRuCadastro.KeyPress += new KeyPressEventHandler(txtRuCadastro_KeyPress);
         }
 
-
         private void txtRuCadastro_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -61,8 +59,7 @@ namespace TrabalhoFacul
             else
             {
                 ru = txtRuCadastro.Text;
-            }
-            
+            }            
         }
 
         private void txtNomeCadastro_TextChanged(object sender, EventArgs e)
@@ -157,34 +154,46 @@ namespace TrabalhoFacul
             DateTime dtNascimetoCadastro = dtCadastro.Value;
             string dtNascimento = dtNascimetoCadastro.ToString("dd/mm/yyyy", CultureInfo.InvariantCulture);
 
-            try
-                {
-                    Conexao = new MySqlConnection(data_source);
+            if (ru == null || nome == null || sobrenome == null || dtNascimento == null || telefone == null ||
+                email == null || tokenAcesso == null || string.IsNullOrEmpty(curso) || sexo == null)
+            {
+                MessageBox.Show("Todos os campos tem que ser preenchido.");
+            }
 
-                    String sql_insert_usuario = "INSERT INTO usuario (ru, nome, sobrenome, senha, token, email, dt_nascimento, telefone, sexo, curso)" +
-                        " VALUES " +
-                        "( '" + ru + "','" + nome + "','" + sobrenome + "','" + senha + "','" + tokenAcesso + 
-                        "','" + email + "','" + dtNascimento + "','" + telefone + "','" + sexo + "','" + curso + "')";
+            else
+            {
+                try
+                    {
+                        Conexao = new MySqlConnection(data_source);
 
-                    MySqlCommand comando = new MySqlCommand(sql_insert_usuario, Conexao);
+                        String sql_insert_usuario = "INSERT INTO usuario (ru, nome, sobrenome, senha, token, email, dt_nascimento, telefone, sexo, curso)" +
+                            " VALUES " +
+                            "( '" + ru + "','" + nome + "','" + sobrenome + "','" + senha + "','" + tokenAcesso + 
+                            "','" + email + "','" + dtNascimento + "','" + telefone + "','" + sexo + "','" + curso + "')";
 
-                    Conexao.Open();
+                        MySqlCommand comando = new MySqlCommand(sql_insert_usuario, Conexao);
 
-                    comando.ExecuteReader();
-                    MessageBox.Show("Cadastro feito com sucesso");
+                        Conexao.Open();
 
-                }
+                        comando.ExecuteReader();
+                        MessageBox.Show("Cadastro feito com sucesso");
 
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Este RU já existe");
-                }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Este RU já existe");
+                    }
 
 
-                finally
-                {
-                    Conexao.Close();
-                }
+                    finally
+                    {
+                        Conexao.Close();
+                    }
+
+            }
+
+
             }
 
         private void allClear()
