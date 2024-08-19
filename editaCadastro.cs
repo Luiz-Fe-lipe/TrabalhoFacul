@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace TrabalhoFacul
 {
-    public partial class Form5 : Form
+    public partial class editaCadastro : Form
     {
-        public Form5()
+        public editaCadastro()
         {
             InitializeComponent();
         }
 
-        private void Form5_Load(object sender, EventArgs e)
+        private void editaCadastro_Load(object sender, EventArgs e)
         {
 
         }

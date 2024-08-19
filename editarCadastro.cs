@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace TrabalhoFacul
 {
-    public partial class Form5 : Form
+    public partial class editarCadastro : Form
     {
-        public Form5()
+        public editarCadastro()
         {
             InitializeComponent();
-        }
-
-        private void Form5_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
