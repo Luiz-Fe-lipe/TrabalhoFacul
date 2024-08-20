@@ -34,10 +34,8 @@
             this.tbNomeCurso = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdicionar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnDeDisciplina = new System.Windows.Forms.Button();
-            this.btnBuDisciplina = new System.Windows.Forms.Button();
             this.btnAdDisciplina = new System.Windows.Forms.Button();
             this.tbIdDisciplina = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,10 +43,11 @@
             this.btnLimpar = new System.Windows.Forms.Button();
             this.dvgDados = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dvgDisciplina = new System.Windows.Forms.DataGridView();
+            this.btnVoltar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnBuDisciplina = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDisciplina)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,13 +84,6 @@
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
-            // btnBuscar
-            // 
-            resources.ApplyResources(this.btnBuscar, "btnBuscar");
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // btnDeletar
             // 
             resources.ApplyResources(this.btnDeletar, "btnDeletar");
@@ -105,12 +97,6 @@
             this.btnDeDisciplina.Name = "btnDeDisciplina";
             this.btnDeDisciplina.UseVisualStyleBackColor = true;
             this.btnDeDisciplina.Click += new System.EventHandler(this.btnDeDisciplina_Click);
-            // 
-            // btnBuDisciplina
-            // 
-            resources.ApplyResources(this.btnBuDisciplina, "btnBuDisciplina");
-            this.btnBuDisciplina.Name = "btnBuDisciplina";
-            this.btnBuDisciplina.UseVisualStyleBackColor = true;
             // 
             // btnAdDisciplina
             // 
@@ -159,12 +145,6 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
             // dvgDisciplina
             // 
             this.dvgDisciplina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -172,12 +152,32 @@
             this.dvgDisciplina.Name = "dvgDisciplina";
             this.dvgDisciplina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgDisciplina_CellContentClick);
             // 
+            // btnVoltar
+            // 
+            resources.ApplyResources(this.btnVoltar, "btnVoltar");
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnBuscar
+            // 
+            resources.ApplyResources(this.btnBuscar, "btnBuscar");
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnBuDisciplina
+            // 
+            resources.ApplyResources(this.btnBuDisciplina, "btnBuDisciplina");
+            this.btnBuDisciplina.Name = "btnBuDisciplina";
+            this.btnBuDisciplina.UseVisualStyleBackColor = true;
+            // 
             // editarCurso
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.dvgDisciplina);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dvgDados);
             this.Controls.Add(this.btnLimpar);
@@ -198,7 +198,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.editarCurso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvgDados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDisciplina)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -211,10 +210,8 @@
         private System.Windows.Forms.TextBox tbNomeCurso;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAdicionar;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnDeDisciplina;
-        private System.Windows.Forms.Button btnBuDisciplina;
         private System.Windows.Forms.Button btnAdDisciplina;
         private System.Windows.Forms.TextBox tbIdDisciplina;
         private System.Windows.Forms.Label label3;
@@ -222,7 +219,9 @@
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.DataGridView dvgDados;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dvgDisciplina;
+        private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnBuDisciplina;
     }
 }

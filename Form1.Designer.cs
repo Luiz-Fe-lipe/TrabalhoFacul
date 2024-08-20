@@ -37,6 +37,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnFormCadastro = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,15 +60,12 @@
             this.lblRu.Text = "RU";
             // 
             // pictureBox1
-            /*//
-            this.pictureBox1.Image = global::TrabalhoFacul.Properties.Resources.account_user_avatar_worker_profile_job_employee_icon_261707;
-            this.pictureBox1.Location = new System.Drawing.Point(34, 40);
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(111, 96);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);*/
             // 
             // label1
             // 
@@ -92,7 +90,7 @@
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(179, 156);
+            this.btnLogin.Location = new System.Drawing.Point(179, 163);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 29);
             this.btnLogin.TabIndex = 19;
@@ -104,7 +102,7 @@
             // 
             this.btnFormCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFormCadastro.ForeColor = System.Drawing.Color.Black;
-            this.btnFormCadastro.Location = new System.Drawing.Point(278, 156);
+            this.btnFormCadastro.Location = new System.Drawing.Point(279, 163);
             this.btnFormCadastro.Name = "btnFormCadastro";
             this.btnFormCadastro.Size = new System.Drawing.Size(82, 29);
             this.btnFormCadastro.TabIndex = 20;
@@ -117,12 +115,22 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
             this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label2.Location = new System.Drawing.Point(276, 188);
+            this.label2.Location = new System.Drawing.Point(258, 195);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 15);
             this.label2.TabIndex = 21;
             this.label2.Text = "Não possui cadastro?";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(176, 133);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(86, 13);
+            this.linkLabel1.TabIndex = 23;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Esqueci a senha";
             // 
             // Form1
             // 
@@ -130,6 +138,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(410, 230);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnFormCadastro);
             this.Controls.Add(this.btnLogin);
@@ -142,6 +151,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,6 +168,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnFormCadastro;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

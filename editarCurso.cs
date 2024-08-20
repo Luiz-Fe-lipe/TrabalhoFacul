@@ -351,13 +351,18 @@ namespace TrabalhoFacul
             
         }
 
-       /* private void pictureBox1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Form5 edita = new Form5();
-            edita.ShowDialog();
-            this.Close(); 
-        }*/
 
-        
+        }
+
+        /* private void pictureBox1_Click(object sender, EventArgs e)
+         {
+             Form5 edita = new Form5();
+             edita.ShowDialog();
+             this.Close(); 
+         }*/
+
+
     }
 }
