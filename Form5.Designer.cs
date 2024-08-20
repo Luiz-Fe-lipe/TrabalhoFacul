@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
             this.button2 = new System.Windows.Forms.Button();
             this.lbl_menu = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_exibir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
@@ -58,17 +58,16 @@
             this.lbl_menu.Text = "O que deseja fazer?";
             this.lbl_menu.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // button1
+            // btn_exibir
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(30, 86);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 72);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Exibir cadastros";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_exibir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_exibir.Location = new System.Drawing.Point(40, 106);
+            this.btn_exibir.Name = "btn_exibir";
+            this.btn_exibir.Size = new System.Drawing.Size(207, 89);
+            this.btn_exibir.TabIndex = 0;
+            this.btn_exibir.Text = "Exibir cadastros";
+            this.btn_exibir.UseVisualStyleBackColor = true;
+            this.btn_exibir.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormMenu
             // 
@@ -78,7 +77,7 @@
             this.ClientSize = new System.Drawing.Size(410, 230);
             this.Controls.Add(this.lbl_menu);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_exibir);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMenu";
             this.Text = "Menu";
@@ -90,7 +89,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_exibir;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lbl_menu;
     }
