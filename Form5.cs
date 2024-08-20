@@ -19,7 +19,19 @@ namespace TrabalhoFacul
 
         private void button1_Click(object sender, EventArgs e)
         {
+    
+        }
 
+        private void FormMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            editarCurso edita = new editarCurso();
+            edita.ShowDialog();
+            this.Close();
         }
     }
 }
