@@ -42,7 +42,7 @@ namespace TrabalhoFacul
             LoadComboBox();
 
             dtCadastro.Format = DateTimePickerFormat.Custom;
-            dtCadastro.CustomFormat = "dd/mm/yyyy";
+            dtCadastro.CustomFormat = "dd/MM/yyyy";
             dtCadastro.Value=DateTime.Now;
 
             txtRuCadastro.KeyPress += new KeyPressEventHandler(txtRuCadastro_KeyPress);
@@ -152,7 +152,7 @@ namespace TrabalhoFacul
         private void btCadastrar_Click(object sender, EventArgs e)
         {
             DateTime dtNascimetoCadastro = dtCadastro.Value;
-            string dtNascimento = dtNascimetoCadastro.ToString("dd/mm/yyyy", CultureInfo.InvariantCulture);
+            string dtNascimento = dtNascimetoCadastro.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
 
             if (ru == null || nome == null || sobrenome == null || dtNascimento == null || telefone == null ||
                 email == null || tokenAcesso == null || string.IsNullOrEmpty(curso) || sexo == null)
@@ -177,13 +177,17 @@ namespace TrabalhoFacul
 
                         comando.ExecuteReader();
                         MessageBox.Show("Cadastro feito com sucesso");
+                        Form1 Form1 = new Form1();
+                        Form1.Show();
+                        this.Hide();
 
                     }
 
                     catch (Exception ex)
                     {
                         MessageBox.Show("Este RU já existe");
-                    }
+
+                }
 
 
                     finally
@@ -249,11 +253,6 @@ namespace TrabalhoFacul
         }
 
         private void dtCadastro_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
