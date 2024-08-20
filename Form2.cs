@@ -177,13 +177,17 @@ namespace TrabalhoFacul
 
                         comando.ExecuteReader();
                         MessageBox.Show("Cadastro feito com sucesso");
+                        Form1 Form1 = new Form1();
+                        Form1.Show();
+                        this.Hide();
 
                     }
 
                     catch (Exception ex)
                     {
                         MessageBox.Show("Este RU já existe");
-                    }
+
+                }
 
 
                     finally
