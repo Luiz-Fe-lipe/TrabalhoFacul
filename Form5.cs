@@ -26,7 +26,7 @@ namespace TrabalhoFacul
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form4 formeditar = new Form4();
+            edita formeditar = new edita();
             formeditar.Show();
             this.Close();
         }
@@ -34,13 +34,6 @@ namespace TrabalhoFacul
         private void FormMenu_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            editarCurso edita = new editarCurso();
-            edita.ShowDialog();
-            this.Close();
         }
     }
 }
