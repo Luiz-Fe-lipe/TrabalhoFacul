@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Globalization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Google.Protobuf.WellKnownTypes;
+using System.Diagnostics.Eventing.Reader;
+using K4os.Compression.LZ4.Streams.Adapters;
+
 
 namespace TrabalhoFacul
 {
@@ -21,21 +27,39 @@ namespace TrabalhoFacul
         private string email;
         private string sobrenome;
         private string telefone;
-        private string data;
         private string senha;
+        private int tokenAcesso;
+        private string curso;
 
         public MySqlConnection Conexao { get; set; }
         string data_source = "datasource=databasepv.cxcs0i2uoy4j.us-east-1.rds.amazonaws.com;database=cadastros;username=admin;password=manga5661;";
 
-
         public FormCadastro()
         {
             InitializeComponent();
+
+            cbCursos.DropDownStyle = ComboBoxStyle.DropDownList;
+            LoadComboBox();
+
+            dtCadastro.Format = DateTimePickerFormat.Custom;
+            dtCadastro.CustomFormat = "dd/mm/yyyy";
+            dtCadastro.Value=DateTime.Now;
+
+            txtRuCadastro.KeyPress += new KeyPressEventHandler(txtRuCadastro_KeyPress);
         }
 
-        private void txtRuCadastro_TextChanged(object sender, EventArgs e)
+        private void txtRuCadastro_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ru = txtRuCadastro.Text;
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+
+                MessageBox.Show("Somente Numeros");
+            }
+            else
+            {
+                ru = txtRuCadastro.Text;
+            }            
         }
 
         private void txtNomeCadastro_TextChanged(object sender, EventArgs e)
@@ -46,11 +70,6 @@ namespace TrabalhoFacul
         private void txtEmailCadastro_TextChanged(object sender, EventArgs e)
         {
             email= txtEmailCadastro.Text;
-        }
-
-        private void txtDataCadastro_TextChanged(object sender, EventArgs e)
-        {
-            data = txtDataCadastro.Text;
         }
 
         private void txtSobrenomeCadastro_TextChanged(object sender, EventArgs e)
@@ -83,63 +102,102 @@ namespace TrabalhoFacul
             }
         }
 
-        public static Boolean tokenAcesso(string token)
-        {
-            if (string.IsNullOrEmpty(token))
-            {
-                return false;
-            }
-            else
-                return true;
-        }
-
         private void txtProfessorCadastro_TextChanged(object sender, EventArgs e)
         {
-            if (txtProfessorCadastro != null)
+            if (txtProfessorCadastro.Text != "0")
             {
-             
+                tokenAcesso = 1;
             }
-
+            else
+                tokenAcesso = 0;
+        }
+        private void cbCursos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            curso = cbCursos.Text;
         }
 
-
-        private void btCadastrar_Click(object sender, EventArgs e)
+        public void LoadComboBox()
         {
             try
             {
                 Conexao = new MySqlConnection(data_source);
 
-                String sql_insert = "INSERT INTO usuario (ru, nome, email, dt_nascimento, sobrenome, telefone, sexo, senha)" +
-                    " VALUES " +
-                    "( '" + ru + "','" + nome + "','" + email + "','"+ data + "','"
-                    + sobrenome + "' , '" + telefone + "', '" + sexo + "' , '" + senha + "')";
-
-                MySqlCommand comando = new MySqlCommand(sql_insert, Conexao);
-
                 Conexao.Open();
 
-                comando.ExecuteReader();
+                String sql_select_cursos = "SELECT curso FROM curso";
 
-                MessageBox.Show("Cadastro Feito com sucesso");
+                MySqlCommand comando = new MySqlCommand(sql_select_cursos, Conexao);
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cbCursos.Items.Add(reader["curso"].ToString());
+                }
+
+                reader.Close();
 
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Erro: " + ex.Message);
             }
-
 
             finally
             {
                 Conexao.Close();
             }
-
         }
+
+        private void btCadastrar_Click(object sender, EventArgs e)
+        {
+            DateTime dtNascimetoCadastro = dtCadastro.Value;
+            string dtNascimento = dtNascimetoCadastro.ToString("dd/mm/yyyy", CultureInfo.InvariantCulture);
+
+            if (ru == null || nome == null || sobrenome == null || dtNascimento == null || telefone == null ||
+                email == null || tokenAcesso == null || string.IsNullOrEmpty(curso) || sexo == null)
+            {
+                MessageBox.Show("Todos os campos tem que ser preenchido.");
+            }
+
+            else
+            {
+                try
+                    {
+                        Conexao = new MySqlConnection(data_source);
+
+                        String sql_insert_usuario = "INSERT INTO usuario (ru, nome, sobrenome, senha, token, email, dt_nascimento, telefone, sexo, curso)" +
+                            " VALUES " +
+                            "( '" + ru + "','" + nome + "','" + sobrenome + "','" + senha + "','" + tokenAcesso + 
+                            "','" + email + "','" + dtNascimento + "','" + telefone + "','" + sexo + "','" + curso + "')";
+
+                        MySqlCommand comando = new MySqlCommand(sql_insert_usuario, Conexao);
+
+                        Conexao.Open();
+
+                        comando.ExecuteReader();
+                        MessageBox.Show("Cadastro feito com sucesso");
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Este RU já existe");
+                    }
+
+
+                    finally
+                    {
+                        Conexao.Close();
+                    }
+
+            }
+
+
+            }
 
         private void allClear()
         {
-            txtDataCadastro.Clear();
             txtEmailCadastro.Clear();
             txtNomeCadastro.Clear();
             txtSobrenomeCadastro.Clear();
@@ -147,7 +205,10 @@ namespace TrabalhoFacul
             txtRuCadastro.Clear();
             rbtFeminino.Checked = false;
             rbtMasculino.Checked = false;
-            txtSenhaCadastro.Clear() ;
+            txtSenhaCadastro.Clear();
+            txtProfessorCadastro.Clear();
+            cbCursos.SelectedIndex = -1;
+            dtCadastro.Value = DateTime.Now;
         }
 
         private void btLimpar_Click(object sender, EventArgs e)
@@ -167,7 +228,7 @@ namespace TrabalhoFacul
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void lblSenha_Click(object sender, EventArgs e)
         {
 
         }
@@ -177,36 +238,18 @@ namespace TrabalhoFacul
             Application.Exit();
         }
 
-        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void lblTelefone_Click(object sender, EventArgs e)
         {
 
+        }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
-            try
-            {
-                Conexao = new MySqlConnection(data_source);
+        }
 
-                String sql_select = "SELECT * FROM cadastros";
-
-                MySqlCommand comando = new MySqlCommand(sql_select, Conexao);
-
-                Conexao.Open();
-
-                comando.ExecuteReader();
-
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-
-            finally
-            {
-                Conexao.Close();
-            }
+        private void dtCadastro_ValueChanged(object sender, EventArgs e)
+        {
 
         }
 

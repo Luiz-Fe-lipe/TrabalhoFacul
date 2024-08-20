@@ -59,7 +59,7 @@
             this.lblRu.Text = "RU";
             // 
             // pictureBox1
-            // 
+            /*//
             this.pictureBox1.Image = global::TrabalhoFacul.Properties.Resources.account_user_avatar_worker_profile_job_employee_icon_261707;
             this.pictureBox1.Location = new System.Drawing.Point(34, 40);
             this.pictureBox1.Name = "pictureBox1";
@@ -67,7 +67,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);*/
             // 
             // label1
             // 

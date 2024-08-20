@@ -44,7 +44,7 @@
             this.tbDisciplina = new System.Windows.Forms.TextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.dvgDados = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dvgDisciplina = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDados)).BeginInit();
@@ -154,18 +154,16 @@
             this.dvgDados.ReadOnly = true;
             this.dvgDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgDados_CellContentClick);
             // 
-            // label5
+            // label4
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::TrabalhoFacul.Properties.Resources.setaVoltar;
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // dvgDisciplina
             // 
@@ -180,7 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dvgDisciplina);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.dvgDados);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnDeDisciplina);
@@ -223,7 +221,7 @@
         private System.Windows.Forms.TextBox tbDisciplina;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.DataGridView dvgDados;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dvgDisciplina;
     }
