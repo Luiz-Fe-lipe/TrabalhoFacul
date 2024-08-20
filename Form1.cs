@@ -45,9 +45,9 @@ namespace TrabalhoFacul
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string login = txtRuLogin.Text;
-            Int32 ru = Int32.Parse(login);
+            int ru = Int32.Parse(login);
             string senha = txtSenhaLogin.Text;
-            string nome = ValidarLogin(login, senha);
+            string nome = ValidarLogin(ru, senha);
 
             if (nome != null)
             {
@@ -61,7 +61,7 @@ namespace TrabalhoFacul
             }
         }
 
-        private string ValidarLogin(string ru, string senha)
+        private string ValidarLogin(int ru, string senha)
         {
             try
             {
