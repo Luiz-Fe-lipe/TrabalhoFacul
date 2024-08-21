@@ -35,7 +35,6 @@
             this.txtSenhaLogin = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnFormCadastro = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -108,17 +107,6 @@
             this.btnFormCadastro.UseVisualStyleBackColor = true;
             this.btnFormCadastro.Click += new System.EventHandler(this.btnFormCadastro_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
-            this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label2.Location = new System.Drawing.Point(368, 256);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 18);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Não possui cadastro?";
-            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -149,7 +137,6 @@
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(547, 283);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnFormCadastro);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);
@@ -177,7 +164,6 @@
         private System.Windows.Forms.TextBox txtSenhaLogin;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnFormCadastro;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
