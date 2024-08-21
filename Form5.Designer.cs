@@ -80,7 +80,7 @@
             this.btn_red_senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_red_senha.Location = new System.Drawing.Point(285, 240);
             this.btn_red_senha.Name = "btn_red_senha";
-            this.btn_red_senha.Size = new System.Drawing.Size(213, 35);
+            this.btn_red_senha.Size = new System.Drawing.Size(212, 35);
             this.btn_red_senha.TabIndex = 6;
             this.btn_red_senha.Text = "Redefinir senha";
             this.btn_red_senha.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             // 
             // txt_nova_senha
             // 
-            this.txt_nova_senha.Location = new System.Drawing.Point(284, 204);
+            this.txt_nova_senha.Location = new System.Drawing.Point(284, 207);
             this.txt_nova_senha.Name = "txt_nova_senha";
             this.txt_nova_senha.Size = new System.Drawing.Size(213, 22);
             this.txt_nova_senha.TabIndex = 12;
