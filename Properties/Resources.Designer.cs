@@ -83,6 +83,26 @@ namespace TrabalhoFacul.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cadeado {
+            get {
+                object obj = ResourceManager.GetObject("cadeado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap senha {
+            get {
+                object obj = ResourceManager.GetObject("senha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wallpaperflare_com_wallpaper_eldenring1 {
             get {
                 object obj = ResourceManager.GetObject("wallpaperflare.com_wallpaper eldenring1", resourceCulture);

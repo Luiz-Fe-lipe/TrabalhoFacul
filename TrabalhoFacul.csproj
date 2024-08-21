@@ -297,5 +297,11 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cadeado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\senha.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

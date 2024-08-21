@@ -30,10 +30,10 @@ namespace TrabalhoFacul
             formcadastro.Show();
         }
 
-        private void AbrirMenu()
+        private void RedefinirSenha()
         {
-            FormMenu formmenu = new FormMenu();
-            formmenu.Show();
+            FormRedSen redsen = new FormRedSen();
+            redsen.Show();
         }
 
         private void btnFormCadastro_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace TrabalhoFacul
             if (nome != null)
             {
                 MessageBox.Show($"Bem-vindo {nome}");
-                AbrirMenu();
+                
                 this.Hide();
             }
             else
@@ -93,6 +93,12 @@ namespace TrabalhoFacul
                 MessageBox.Show("Erro ao conectar ao banco de dados: " + ex.Message);
                 return null;
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RedefinirSenha();
+            this.Hide();
         }
     }
 }
