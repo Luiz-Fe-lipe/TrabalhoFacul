@@ -35,20 +35,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
-            this.btnDeDisciplina = new System.Windows.Forms.Button();
-            this.btnAdDisciplina = new System.Windows.Forms.Button();
-            this.tbIdDisciplina = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbDisciplina = new System.Windows.Forms.TextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.dvgDados = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dvgDisciplina = new System.Windows.Forms.DataGridView();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnBuDisciplina = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgDisciplina)).BeginInit();
             this.SuspendLayout();
             // 
             // tbIdCurso
@@ -91,38 +81,6 @@
             this.btnDeletar.UseVisualStyleBackColor = true;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
-            // btnDeDisciplina
-            // 
-            resources.ApplyResources(this.btnDeDisciplina, "btnDeDisciplina");
-            this.btnDeDisciplina.Name = "btnDeDisciplina";
-            this.btnDeDisciplina.UseVisualStyleBackColor = true;
-            this.btnDeDisciplina.Click += new System.EventHandler(this.btnDeDisciplina_Click);
-            // 
-            // btnAdDisciplina
-            // 
-            resources.ApplyResources(this.btnAdDisciplina, "btnAdDisciplina");
-            this.btnAdDisciplina.Name = "btnAdDisciplina";
-            this.btnAdDisciplina.UseVisualStyleBackColor = true;
-            this.btnAdDisciplina.Click += new System.EventHandler(this.btnAdDisciplina_Click);
-            // 
-            // tbIdDisciplina
-            // 
-            resources.ApplyResources(this.tbIdDisciplina, "tbIdDisciplina");
-            this.tbIdDisciplina.Name = "tbIdDisciplina";
-            this.tbIdDisciplina.TextChanged += new System.EventHandler(this.tbIdDisciplina_TextChanged);
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.CausesValidation = false;
-            this.label3.Name = "label3";
-            // 
-            // tbDisciplina
-            // 
-            resources.ApplyResources(this.tbDisciplina, "tbDisciplina");
-            this.tbDisciplina.Name = "tbDisciplina";
-            this.tbDisciplina.TextChanged += new System.EventHandler(this.tbDisciplina_TextChanged);
-            // 
             // btnLimpar
             // 
             resources.ApplyResources(this.btnLimpar, "btnLimpar");
@@ -140,55 +98,20 @@
             this.dvgDados.ReadOnly = true;
             this.dvgDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgDados_CellContentClick);
             // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // dvgDisciplina
-            // 
-            this.dvgDisciplina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dvgDisciplina, "dvgDisciplina");
-            this.dvgDisciplina.Name = "dvgDisciplina";
-            this.dvgDisciplina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgDisciplina_CellContentClick);
-            // 
             // btnVoltar
             // 
             resources.ApplyResources(this.btnVoltar, "btnVoltar");
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnBuscar
-            // 
-            resources.ApplyResources(this.btnBuscar, "btnBuscar");
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnBuDisciplina
-            // 
-            resources.ApplyResources(this.btnBuDisciplina, "btnBuDisciplina");
-            this.btnBuDisciplina.Name = "btnBuDisciplina";
-            this.btnBuDisciplina.UseVisualStyleBackColor = true;
             // 
             // editarCurso
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnVoltar);
-            this.Controls.Add(this.dvgDisciplina);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.dvgDados);
             this.Controls.Add(this.btnLimpar);
-            this.Controls.Add(this.btnDeDisciplina);
-            this.Controls.Add(this.btnBuDisciplina);
-            this.Controls.Add(this.btnAdDisciplina);
-            this.Controls.Add(this.tbIdDisciplina);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.tbDisciplina);
             this.Controls.Add(this.btnDeletar);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.tbIdCurso);
             this.Controls.Add(this.label2);
@@ -198,7 +121,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.editarCurso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvgDados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgDisciplina)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,17 +133,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnDeletar;
-        private System.Windows.Forms.Button btnDeDisciplina;
-        private System.Windows.Forms.Button btnAdDisciplina;
-        private System.Windows.Forms.TextBox tbIdDisciplina;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbDisciplina;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.DataGridView dvgDados;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dvgDisciplina;
         private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnBuDisciplina;
     }
 }

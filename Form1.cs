@@ -32,7 +32,7 @@ namespace TrabalhoFacul
 
         private void AbrirMenu()
         {
-            FormMenu formmenu = new FormMenu();
+            FormMenu1 formmenu = new FormMenu1();
             formmenu.Show();
         }
 
