@@ -44,7 +44,7 @@ namespace TrabalhoFacul
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            FormMenu1 edita = new FormMenu1();
+            FormMenu edita = new FormMenu();
             edita.ShowDialog();
             this.Close();
         }

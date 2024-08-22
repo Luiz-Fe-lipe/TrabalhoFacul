@@ -28,6 +28,8 @@ namespace TrabalhoFacul
         {
             tbNomeCurso.Text = string.Empty;
             tbIdCurso.Text = string.Empty;
+            tbIdDisciplina.Text = string.Empty;
+            tbDisciplina.Text = string.Empty;
         }
 
         public editarCurso()
@@ -70,7 +72,41 @@ namespace TrabalhoFacul
                 Conexao.Close();
             }
         }
+        private void PopularDataGridViewDisciplina()
+        {
+            Conexao = new MySqlConnection(data_source);
+            try
+            {
+                //Abrindo a conexão com o banco de dados.
+                Conexao.Open();
+
+                //comando SQL que será executado 
+                string sql_selectDisciplina = "SELECT * FROM disciplina ORDER BY id";
+
+                //cria o objeto com comando SQl e a conexão
         
+                MySqlCommand exibeDisciplina = new MySqlCommand(sql_selectDisciplina, Conexao);
+
+                //cria o objeto dataTable para armazenar o resultado do comando SQL
+                DataTable dataTable = new DataTable();
+
+                //Adapta os dados que serão enviados a partir do MYSQL para o gridview
+             
+                MySqlDataAdapter dataAdapterDisciplina = new MySqlDataAdapter(exibeDisciplina);
+                dataAdapterDisciplina.Fill(dataTable);
+
+                //selecionando os o datagridview que possui o nome "dvgDados" e atribui o dataTable
+                dvgDados.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao conectar no banco de dados: " + ex.Message);
+            }
+            finally
+            {
+                Conexao.Close();
+            }
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -91,7 +127,7 @@ namespace TrabalhoFacul
         {
 
 
-            if (string.IsNullOrEmpty(tbNomeCurso.Text) && string.IsNullOrEmpty(tbIdCurso.Text))
+            if (string.IsNullOrEmpty(tbNomeCurso.Text) || string.IsNullOrEmpty(tbIdCurso.Text))
             {
                 MessageBox.Show("Preencha ao menos um dos camposde pesquisa","Campo obrigatorio ", MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 tbNomeCurso.Focus();
@@ -135,7 +171,11 @@ namespace TrabalhoFacul
 
         }
 
-        
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void editarCurso_Load(object sender, EventArgs e)
         {
 
@@ -154,9 +194,10 @@ namespace TrabalhoFacul
                         //Condição IF para validar que se o usuário está escrevendo o nome do curso ou o ID.
                         if (tbNomeCurso.Text != "" && tbIdCurso.Text == "")
                         {
-                            MessageBox.Show("Preencha ao menos um dos campos de pesquisa", "Campo obrigatorio ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            tbNomeCurso.Focus();
-                            return;
+                            string sql_delete_curso_nome = "DELETE FROM curso WHERE curso = " + tbNomeCurso.Text + " ";
+                            MySqlCommand comando = new MySqlCommand(sql_delete_curso_nome, Conexao);
+                            comando.ExecuteReader();
+                            MessageBox.Show("Curso apagado do banco de dados!");
                         }
                         else if(tbNomeCurso.Text == "" && tbIdCurso.Text != "")
                         {
@@ -193,15 +234,135 @@ namespace TrabalhoFacul
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
+            tbDisciplina.Clear();
+            tbIdDisciplina.Clear();
             tbNomeCurso.Clear();
             tbIdCurso.Clear();
         }
 
-      
+        private void tbDisciplina_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbIdDisciplina_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeDisciplina_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja apagar este registro?", "Cadastro Aluno", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+               
+                try
+                {
+                    Conexao.Open();
+                    //Condição IF para validar que se o usuário está escrevendo o nome da disciplina ou o ID.
+                    if (tbDisciplina.Text != "" && tbIdDisciplina.Text == "")
+                    {
+                        string sql_delete_disciplina = "DELETE FROM disciplina WHERE nome_disciplina = " + tbDisciplina.Text + " ";
+                        MySqlCommand comando = new MySqlCommand(sql_delete_disciplina, Conexao);
+                        comando.ExecuteReader();
+                        MessageBox.Show("Aluno apagado do banco de dados!");
+                    }
+                    else if (tbNomeCurso.Text == "" && tbIdCurso.Text != "")
+                    {
+                        string sql_delete_curso_id = "DELETE FROM disciplina WHERE id = " + tbIdDisciplina.Text + " ";
+                        MySqlCommand comando = new MySqlCommand(sql_delete_curso_id, Conexao);
+                        comando.ExecuteReader();
+                        MessageBox.Show("Aluno apagado do banco de dados!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Digite o Nome do curso ou o ID");
+                    }
+
+
+
+                    //apaga a linha do datagridview
+                    dvgDados.Rows.RemoveAt(row_selected);
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Erro ao conectar ao banco de dados: " + ex.Message);
+                }
+                finally
+                {
+                    if (Conexao.State == ConnectionState.Open)
+                        Conexao.Close();
+                }
+            }
+        }
 
         private void dvgDados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             PopularDataGridViewCursos();
         }
+
+
+        private void dvgDisciplina_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PopularDataGridViewCursos();
+        }
+
+
+        private void btnAdDisciplina_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbDisciplina.Text) || string.IsNullOrEmpty(tbIdDisciplina.Text))
+            {
+                MessageBox.Show("Preencha ao menos um dos camposde pesquisa", "Campo obrigatorio ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tbDisciplina.Focus();
+                return;
+            }
+            else
+            {
+                try
+                {
+                    Conexao = new MySqlConnection(data_source);
+
+                    string sqlAdcionarDisciplina = "SET FOREIGN_KEY_CHECKS = 0;" +
+                   "insert into cadastros.disciplina(disciplina)" +
+                   "values ('" + tbDisciplina + "');" +
+                   "SET FOREIGN_KEY_CHECKS = 1; ";
+
+                    MessageBox.Show(sqlAdcionarDisciplina);
+
+                    MySqlCommand comando = new MySqlCommand(sqlAdcionarDisciplina, Conexao);
+
+                    Conexao.Open();
+
+                    comando.ExecuteReader();
+
+                    MessageBox.Show("Curso incluído com sucesso!");
+                    LimparCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    Conexao.Close();
+
+                }
+            }
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /* private void pictureBox1_Click(object sender, EventArgs e)
+         {
+             Form5 edita = new Form5();
+             edita.ShowDialog();
+             this.Close(); 
+         }*/
+
+
     }
 }

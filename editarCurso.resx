@@ -122,7 +122,7 @@
     <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
   <data name="tbIdCurso.Location" type="System.Drawing.Point, System.Drawing">
-    <value>415, 77</value>
+    <value>378, 77</value>
   </data>
   <data name="tbIdCurso.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 29</value>
@@ -141,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbIdCurso.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>14</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -175,7 +175,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>17</value>
   </data>
   <data name="tbNomeCurso.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 14.25pt</value>
@@ -199,7 +199,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbNomeCurso.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>16</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -211,7 +211,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>411, 50</value>
+    <value>374, 50</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 24</value>
@@ -232,7 +232,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>15</value>
   </data>
   <data name="btnAdicionar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -241,7 +241,7 @@
     <value>40, 126</value>
   </data>
   <data name="btnAdicionar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 34</value>
+    <value>123, 34</value>
   </data>
   <data name="btnAdicionar.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -259,16 +259,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnAdicionar.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>13</value>
   </data>
   <data name="btnDeletar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnDeletar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>164, 126</value>
+    <value>333, 126</value>
   </data>
   <data name="btnDeletar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 34</value>
+    <value>123, 34</value>
   </data>
   <data name="btnDeletar.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -286,16 +286,151 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnDeletar.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>11</value>
+  </data>
+  <data name="btnDeDisciplina.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDeDisciplina.Location" type="System.Drawing.Point, System.Drawing">
+    <value>866, 126</value>
+  </data>
+  <data name="btnDeDisciplina.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 34</value>
+  </data>
+  <data name="btnDeDisciplina.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="btnDeDisciplina.Text" xml:space="preserve">
+    <value>Deletar</value>
+  </data>
+  <data name="&gt;&gt;btnDeDisciplina.Name" xml:space="preserve">
+    <value>btnDeDisciplina</value>
+  </data>
+  <data name="&gt;&gt;btnDeDisciplina.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnDeDisciplina.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnDeDisciplina.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnAdDisciplina.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnAdDisciplina.Location" type="System.Drawing.Point, System.Drawing">
+    <value>558, 126</value>
+  </data>
+  <data name="btnAdDisciplina.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 34</value>
+  </data>
+  <data name="btnAdDisciplina.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="btnAdDisciplina.Text" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="&gt;&gt;btnAdDisciplina.Name" xml:space="preserve">
+    <value>btnAdDisciplina</value>
+  </data>
+  <data name="&gt;&gt;btnAdDisciplina.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAdDisciplina.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnAdDisciplina.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="tbIdDisciplina.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 14.25pt</value>
+  </data>
+  <data name="tbIdDisciplina.Location" type="System.Drawing.Point, System.Drawing">
+    <value>911, 77</value>
+  </data>
+  <data name="tbIdDisciplina.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 29</value>
+  </data>
+  <data name="tbIdDisciplina.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;tbIdDisciplina.Name" xml:space="preserve">
+    <value>tbIdDisciplina</value>
+  </data>
+  <data name="&gt;&gt;tbIdDisciplina.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbIdDisciplina.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbIdDisciplina.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 14.25pt</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>892, 50</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 24</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>ID Disciplina</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="tbDisciplina.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 14.25pt</value>
+  </data>
+  <data name="tbDisciplina.Location" type="System.Drawing.Point, System.Drawing">
+    <value>558, 77</value>
+  </data>
+  <data name="tbDisciplina.Size" type="System.Drawing.Size, System.Drawing">
+    <value>298, 29</value>
+  </data>
+  <data name="tbDisciplina.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;tbDisciplina.Name" xml:space="preserve">
+    <value>tbDisciplina</value>
+  </data>
+  <data name="&gt;&gt;tbDisciplina.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbDisciplina.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbDisciplina.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="btnLimpar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnLimpar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>292, 124</value>
+    <value>469, 71</value>
   </data>
   <data name="btnLimpar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 38</value>
+    <value>79, 89</value>
   </data>
   <data name="btnLimpar.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -313,7 +448,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnLimpar.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="dvgDados.Location" type="System.Drawing.Point, System.Drawing">
     <value>40, 185</value>
@@ -334,13 +469,67 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dvgDados.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 14.25pt</value>
+  </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>560, 56</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 24</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Nome da Disciplina</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="dvgDisciplina.Location" type="System.Drawing.Point, System.Drawing">
+    <value>558, 185</value>
+  </data>
+  <data name="dvgDisciplina.Size" type="System.Drawing.Size, System.Drawing">
+    <value>446, 515</value>
+  </data>
+  <data name="dvgDisciplina.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="&gt;&gt;dvgDisciplina.Name" xml:space="preserve">
+    <value>dvgDisciplina</value>
+  </data>
+  <data name="&gt;&gt;dvgDisciplina.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dvgDisciplina.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dvgDisciplina.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="btnVoltar.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="btnVoltar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
+    <value>40, 12</value>
   </data>
   <data name="btnVoltar.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 35</value>
@@ -363,6 +552,60 @@
   <data name="&gt;&gt;btnVoltar.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="btnBuscar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnBuscar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>188, 126</value>
+  </data>
+  <data name="btnBuscar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 34</value>
+  </data>
+  <data name="btnBuscar.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="btnBuscar.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.Name" xml:space="preserve">
+    <value>btnBuscar</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnBuscar.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="btnBuDisciplina.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnBuDisciplina.Location" type="System.Drawing.Point, System.Drawing">
+    <value>720, 126</value>
+  </data>
+  <data name="btnBuDisciplina.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 34</value>
+  </data>
+  <data name="btnBuDisciplina.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="btnBuDisciplina.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="&gt;&gt;btnBuDisciplina.Name" xml:space="preserve">
+    <value>btnBuDisciplina</value>
+  </data>
+  <data name="&gt;&gt;btnBuDisciplina.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnBuDisciplina.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnBuDisciplina.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -370,7 +613,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>556, 720</value>
+    <value>1048, 720</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Editar Cusro</value>
