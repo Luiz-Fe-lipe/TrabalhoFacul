@@ -30,11 +30,7 @@ namespace TrabalhoFacul
             formcadastro.Show();
         }
 
-        private void AbrirMenu()
-        {
-            FormMenu formmenu = new FormMenu();
-            formmenu.Show();
-        }
+        
 
         private void btnFormCadastro_Click(object sender, EventArgs e)
         {
@@ -59,6 +55,13 @@ namespace TrabalhoFacul
             {
                 MessageBox.Show("RU ou senha inválidos. Tente novamente.");
             }
+        }
+
+        private void AbrirMenu()
+        {
+            edita menu = new edita();
+            menu.ShowDialog();
+            this.Close(); ;
         }
 
         private string ValidarLogin(int ru, string senha)

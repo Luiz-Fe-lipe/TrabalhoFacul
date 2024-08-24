@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.alterarCadastro = new System.Windows.Forms.Button();
             this.alterarCurso = new System.Windows.Forms.Button();
-            this.btnVoltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -66,22 +65,11 @@
             this.alterarCurso.UseVisualStyleBackColor = true;
             this.alterarCurso.Click += new System.EventHandler(this.alterarCurso_Click);
             // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Location = new System.Drawing.Point(148, 177);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(85, 37);
-            this.btnVoltar.TabIndex = 3;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
-            // 
             // edita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 226);
-            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.alterarCurso);
             this.Controls.Add(this.alterarCadastro);
             this.Controls.Add(this.label1);
@@ -99,6 +87,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button alterarCadastro;
         private System.Windows.Forms.Button alterarCurso;
-        private System.Windows.Forms.Button btnVoltar;
     }
 }

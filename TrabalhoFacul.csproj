@@ -315,5 +315,14 @@
   <ItemGroup>
     <None Include="Resources\setaVoltar.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\professorpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aluno.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tela de fundo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

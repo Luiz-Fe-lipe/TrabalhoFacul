@@ -73,9 +73,9 @@ namespace TrabalhoFacul.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap account_user_avatar_worker_profile_job_employee_icon_261707 {
+        internal static System.Drawing.Bitmap aluno {
             get {
-                object obj = ResourceManager.GetObject("account_user_avatar_worker_profile_job_employee_icon_261707", resourceCulture);
+                object obj = ResourceManager.GetObject("aluno", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,19 @@ namespace TrabalhoFacul.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap setaVoltar {
+        internal static System.Drawing.Bitmap professorpng {
             get {
-                object obj = ResourceManager.GetObject("setaVoltar", resourceCulture);
+                object obj = ResourceManager.GetObject("professorpng", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tela_de_fundo {
+            get {
+                object obj = ResourceManager.GetObject("tela de fundo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

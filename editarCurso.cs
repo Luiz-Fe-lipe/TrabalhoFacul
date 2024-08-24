@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 
 
 namespace TrabalhoFacul
@@ -22,7 +23,7 @@ namespace TrabalhoFacul
         public int row_selected { get; private set; }
 
         string data_source = "datasource=databasepv.cxcs0i2uoy4j.us-east-1.rds.amazonaws.com;database=cadastros;username=admin;password=manga5661;";
-        
+
         //Metodo para limpar os campos
         private void LimparCampos()
         {
@@ -35,7 +36,20 @@ namespace TrabalhoFacul
         public editarCurso()
         {
             InitializeComponent();
-        }       
+        }
+
+        private void buscarPorNome()
+        {
+            string sqlBuscarCursoNome = "SELECT curso " +
+                                        "FROM curso " +
+                                        "WHERE curso =  " + tbNomeCurso.Text + " ";
+            MessageBox.Show(sqlBuscarCursoNome);
+
+            MySqlCommand comando = new MySqlCommand(sqlBuscarCursoNome, Conexao);
+            Conexao.Open();
+          
+            comando.ExecuteReader();
+        }
 
         //Metodo para popular o datagridview
         private void PopularDataGridViewCursos()
@@ -48,10 +62,10 @@ namespace TrabalhoFacul
 
                 //comando SQL que será executado 
                 string sql_selectCurso = "SELECT * FROM curso ORDER BY id;";
-                
+
                 //cria o objeto com comando SQl e a conexão
                 MySqlCommand exibeCurso = new MySqlCommand(sql_selectCurso, Conexao);
-               
+
                 //cria o objeto dataTable para armazenar o resultado do comando SQL
                 DataTable dataTable = new DataTable();
 
@@ -59,7 +73,7 @@ namespace TrabalhoFacul
                 MySqlDataAdapter dataAdapterCurso = new MySqlDataAdapter(exibeCurso);
                 dataAdapterCurso.Fill(dataTable);
 
-              
+
                 //selecionando os o datagridview que possui o nome "dvgDados" e atribui o dataTable
                 dvgDados.DataSource = dataTable;
             }
@@ -84,19 +98,19 @@ namespace TrabalhoFacul
                 string sql_selectDisciplina = "SELECT * FROM disciplina ORDER BY id";
 
                 //cria o objeto com comando SQl e a conexão
-        
+
                 MySqlCommand exibeDisciplina = new MySqlCommand(sql_selectDisciplina, Conexao);
 
                 //cria o objeto dataTable para armazenar o resultado do comando SQL
                 DataTable dataTable = new DataTable();
 
                 //Adapta os dados que serão enviados a partir do MYSQL para o gridview
-             
+
                 MySqlDataAdapter dataAdapterDisciplina = new MySqlDataAdapter(exibeDisciplina);
                 dataAdapterDisciplina.Fill(dataTable);
 
                 //selecionando os o datagridview que possui o nome "dvgDados" e atribui o dataTable
-                dvgDados.DataSource = dataTable;
+                dvgDisciplina.DataSource = dataTable;
             }
             catch (Exception ex)
             {
@@ -127,15 +141,15 @@ namespace TrabalhoFacul
         {
 
 
-            if (string.IsNullOrEmpty(tbNomeCurso.Text) || string.IsNullOrEmpty(tbIdCurso.Text))
+            if (string.IsNullOrEmpty(tbNomeCurso.Text) && string.IsNullOrEmpty(tbIdCurso.Text))
             {
-                MessageBox.Show("Preencha ao menos um dos camposde pesquisa","Campo obrigatorio ", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Preencha ao menos um dos camposde pesquisa", "Campo obrigatorio ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tbNomeCurso.Focus();
                 return;
             }
             else
             {
-               try
+                try
                 {
                     Conexao = new MySqlConnection(data_source);
 
@@ -149,9 +163,9 @@ namespace TrabalhoFacul
                     MySqlCommand comando = new MySqlCommand(sqlAdcionarCurso, Conexao);
 
                     Conexao.Open();
-                    
+
                     comando.ExecuteReader();
-                    
+
                     MessageBox.Show("Curso incluído com sucesso!");
                     LimparCampos();
                 }
@@ -160,25 +174,70 @@ namespace TrabalhoFacul
                     MessageBox.Show(ex.Message);
                 }
                 finally
-                { 
-                    Conexao.Close(); 
-                
+                {
+                    Conexao.Close();
+
                 }
 
 
             }
-            
+
 
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(tbNomeCurso.Text) && string.IsNullOrEmpty(tbIdCurso.Text))
+            {
+                MessageBox.Show("Preencha ao menos um dos camposde pesquisa", "Campo obrigatorio ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tbNomeCurso.Focus();
+                return;
+            }
+            else
+            {
+                try
+                {
+                    Conexao = new MySqlConnection(data_source);
+                    if (tbNomeCurso.Text != "" && tbIdCurso.Text == "")
+                    {
+                        string sqlBuscarCursoNome = "SELECT curso " +
+                                                    "FROM curso " +
+                                                    "WHERE curso LIKE '%" + tbNomeCurso.Text + "%' " ;
+                        MySqlCommand comando = new MySqlCommand(sqlBuscarCursoNome, Conexao);
+                        Conexao.Open();
+                        MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+                        dvgDados.DataSource = dataTable;
+                    }
+                    else if (tbNomeCurso.Text == "" && tbIdCurso.Text != "")
+                    {
+                        string sqlBuscarCursoId ="SELECT curso " +
+                                                   "FROM curso " +
+                                                   "WHERE curso LIKE '%" + tbIdCurso.Text + "%' ";
+                        MySqlCommand comando = new MySqlCommand(sqlBuscarCursoId, Conexao);
+                        Conexao.Open();
+                        MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+                        dvgDados.DataSource = dataTable;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    Conexao.Close();
 
+                }
+            }
         }
-
         private void editarCurso_Load(object sender, EventArgs e)
         {
-
+            PopularDataGridViewCursos();
+            PopularDataGridViewDisciplina();
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
@@ -187,7 +246,7 @@ namespace TrabalhoFacul
                 if (MessageBox.Show("Deseja apagar este registro?", "Cadastro Aluno", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-      
+
                     try
                     {
                         Conexao.Open();
@@ -199,18 +258,20 @@ namespace TrabalhoFacul
                             comando.ExecuteReader();
                             MessageBox.Show("Curso apagado do banco de dados!");
                         }
-                        else if(tbNomeCurso.Text == "" && tbIdCurso.Text != "")
+                        else if (tbNomeCurso.Text == "" && tbIdCurso.Text != "")
                         {
-                            string sql_delete_curso_id = "DELETE FROM curso WHERE curso = " + tbIdCurso.Text + " ";
+                            string sql_delete_curso_id = "DELETE FROM curso WHERE id = " + tbIdCurso.Text + " ";
                             MySqlCommand comando = new MySqlCommand(sql_delete_curso_id, Conexao);
                             comando.ExecuteReader();
                             MessageBox.Show("Curso apagado do banco de dados!");
-                        }else
+                            PopularDataGridViewCursos();
+                        }
+                        else
                         {
                             MessageBox.Show("Digite o Nome do curso ou o ID");
                         }
-                      
-                        
+
+
                         //apaga a linha do datagridview
                         dvgDados.Rows.RemoveAt(row_selected);
                     }
@@ -255,24 +316,25 @@ namespace TrabalhoFacul
             if (MessageBox.Show("Deseja apagar este registro?", "Cadastro Aluno", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
-               
+
                 try
                 {
                     Conexao.Open();
                     //Condição IF para validar que se o usuário está escrevendo o nome da disciplina ou o ID.
-                    if (tbDisciplina.Text != "" && tbIdDisciplina.Text == "")
+                    if (tbDisciplina.Text != "" || tbIdDisciplina.Text == "")
                     {
                         string sql_delete_disciplina = "DELETE FROM disciplina WHERE nome_disciplina = " + tbDisciplina.Text + " ";
                         MySqlCommand comando = new MySqlCommand(sql_delete_disciplina, Conexao);
                         comando.ExecuteReader();
                         MessageBox.Show("Aluno apagado do banco de dados!");
                     }
-                    else if (tbNomeCurso.Text == "" && tbIdCurso.Text != "")
+                    else if (tbIdDisciplina.Text == "" || tbIdDisciplina.Text != "")
                     {
-                        string sql_delete_curso_id = "DELETE FROM disciplina WHERE id = " + tbIdDisciplina.Text + " ";
-                        MySqlCommand comando = new MySqlCommand(sql_delete_curso_id, Conexao);
+                        string sql_delete_disciplina_id = "DELETE FROM disciplina WHERE id = " + tbIdDisciplina.Text + " ";
+                        MySqlCommand comando = new MySqlCommand(sql_delete_disciplina_id, Conexao);
                         comando.ExecuteReader();
-                        MessageBox.Show("Aluno apagado do banco de dados!");
+                        MessageBox.Show("Disciplina apagada do banco de dados!");
+                        PopularDataGridViewDisciplina();
                     }
                     else
                     {
@@ -282,7 +344,7 @@ namespace TrabalhoFacul
 
 
                     //apaga a linha do datagridview
-                    dvgDados.Rows.RemoveAt(row_selected);
+                    dvgDisciplina.Rows.RemoveAt(row_selected);
                 }
                 catch (MySqlException ex)
                 {
@@ -298,13 +360,13 @@ namespace TrabalhoFacul
 
         private void dvgDados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            PopularDataGridViewCursos();
+            
         }
 
 
         private void dvgDisciplina_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            PopularDataGridViewCursos();
+           
         }
 
 
@@ -322,10 +384,9 @@ namespace TrabalhoFacul
                 {
                     Conexao = new MySqlConnection(data_source);
 
-                    string sqlAdcionarDisciplina = "SET FOREIGN_KEY_CHECKS = 0;" +
-                   "insert into cadastros.disciplina(disciplina)" +
-                   "values ('" + tbDisciplina + "');" +
-                   "SET FOREIGN_KEY_CHECKS = 1; ";
+                    string sqlAdcionarDisciplina =
+                    "insert into disciplina(nome_disciplina)"+
+                    "values(' " + tbDisciplina + " ')";
 
                     MessageBox.Show(sqlAdcionarDisciplina);
 
@@ -348,21 +409,76 @@ namespace TrabalhoFacul
 
                 }
             }
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            edita voltar = new edita();
+            voltar.ShowDialog();
+            this.Hide();    
         }
 
-        /* private void pictureBox1_Click(object sender, EventArgs e)
-         {
-             Form5 edita = new Form5();
-             edita.ShowDialog();
-             this.Close(); 
-         }*/
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            edita voltar = new edita();
+            voltar.ShowDialog();
+            this.Close();
+        }
 
+        private void btnBuDisciplina_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbDisciplina.Text) && string.IsNullOrEmpty(tbIdDisciplina.Text))
+            {
+                MessageBox.Show("Preencha ao menos um dos camposde pesquisa", "Campo obrigatorio ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tbNomeCurso.Focus();
+                return;
+            }
+            else
+            {
+                try
+                {
+                    Conexao = new MySqlConnection(data_source);
+                    if (tbDisciplina.Text != "" && tbIdDisciplina.Text == "")
+                    {
+                        string sqlBuscarDisciplinaNome = "SELECT curso " +
+                                                    "FROM curso " +
+                                                    "WHERE curso LIKE '%" + tbDisciplina.Text + "%' ";
+                        MySqlCommand comando = new MySqlCommand(sqlBuscarDisciplinaNome, Conexao);
+                        Conexao.Open();
+                        MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+                        dvgDisciplina.DataSource = dataTable;
+                    }
+                    else if (tbNomeCurso.Text == "" && tbIdCurso.Text != "")
+                    {
+                        string sqlBuscarDisciplinaId = "SELECT curso " +
+                                                    "FROM curso " +
+                                                    "WHERE curso LIKE '%" + tbIdDisciplina.Text + "%' ";
+                        MySqlCommand comando = new MySqlCommand(sqlBuscarDisciplinaId, Conexao);
+                        Conexao.Open();
+                        MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+                        dvgDisciplina.DataSource = dataTable;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    Conexao.Close();
 
+                }
+            }
+        }
+
+        private void tbIdCurso_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,5 +16,52 @@ namespace TrabalhoFacul
         {
             InitializeComponent();
         }
+
+        private void btnVoltarCadastro_Click(object sender, EventArgs e)
+        {
+            edita voltar = new edita();
+            voltar.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnBuscarAluno_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editarCadastro_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdicionarAluno_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeletarAluno_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgwAluno_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
