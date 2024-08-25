@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 
 namespace TrabalhoFacul
@@ -24,6 +25,8 @@ namespace TrabalhoFacul
 
         string data_source = "datasource=databasepv.cxcs0i2uoy4j.us-east-1.rds.amazonaws.com;database=cadastros;username=admin;password=manga5661;";
 
+        String curso;
+
         //Metodo para limpar os campos
         private void LimparCampos()
         {
@@ -31,6 +34,7 @@ namespace TrabalhoFacul
             tbIdCurso.Text = string.Empty;
             tbIdDisciplina.Text = string.Empty;
             tbDisciplina.Text = string.Empty;
+          
         }
 
         public editarCurso()
@@ -129,7 +133,7 @@ namespace TrabalhoFacul
 
         private void tbNomeCurso_TextChanged(object sender, EventArgs e)
         {
-
+            curso = tbNomeCurso.Text;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -153,10 +157,10 @@ namespace TrabalhoFacul
                 {
                     Conexao = new MySqlConnection(data_source);
 
-                    string sqlAdcionarCurso = "SET FOREIGN_KEY_CHECKS = 0;" +
-                                 "insert into cadastros.curso(curso)" +
-                                 "values ('" + tbNomeCurso + "');" +
-                                 "SET FOREIGN_KEY_CHECKS = 1; ";
+
+                    string sqlAdcionarCurso = "INSERT INTO curso (curso)" +
+                                 " VALUES " + "('" + curso + "');";
+                                
 
                     MessageBox.Show(sqlAdcionarCurso);
 
