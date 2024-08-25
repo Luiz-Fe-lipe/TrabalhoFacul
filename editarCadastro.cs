@@ -13,6 +13,7 @@ namespace TrabalhoFacul
 {
     public partial class editarCadastro : Form
     {
+        int ru;
         public editarCadastro()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace TrabalhoFacul
             txtNomeAluno.Text = string.Empty;
             txtCursoAluno.Text = string.Empty;
             txtRUAluno.Text = string.Empty;
-            
+
             txtNomeProfessor.Text = string.Empty;
             txtCursoProfessor.Text = string.Empty;
             txtRUProfessor.Text = string.Empty;
@@ -54,7 +55,7 @@ namespace TrabalhoFacul
                 Conexao.Open();
 
                 //comando SQL que será executado 
-                string sql_selectDisciplina = "SELECT * FROM professor ORDER BY nome ";
+                string sql_selectDisciplina = "SELECT * FROM aluno ORDER BY nome ";
 
                 //cria o objeto com comando SQl e a conexão
 
@@ -89,7 +90,7 @@ namespace TrabalhoFacul
                 Conexao.Open();
 
                 //comando SQL que será executado 
-                string sql_selectDisciplina = "SELECT * FROM aluno ORDER BY nome";
+                string sql_selectDisciplina = "SELECT * FROM professor ORDER BY nome";
 
                 //cria o objeto com comando SQl e a conexão
 
@@ -118,7 +119,54 @@ namespace TrabalhoFacul
 
         private void btnBuscarAluno_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtNomeAluno.Text) && string.IsNullOrEmpty(txtRUAluno.Text))
+            {
+                MessageBox.Show("Preencha ao menos um dos camposde pesquisa", "Campo obrigatorio ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNomeAluno.Focus();
+                return;
+            }
+            else
+            {
+                try
+                {
+                    Conexao = new MySqlConnection(data_source);
+                    if (txtNomeAluno.Text != "" && txtRUAluno.Text == "")
+                    {
+                        string sqlBuscarCursoNome = "SELECT  ru,nome,sobrenome,curso " +
+                                                    "FROM aluno " +
+                                                    "WHERE nome LIKE '%" + txtNomeAluno.Text + "%' ";
+                        MySqlCommand comando = new MySqlCommand(sqlBuscarCursoNome, Conexao);
+                        Conexao.Open();
+                        MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+                        dgwAluno.DataSource = dataTable;
+                    }
+                    else if (txtNomeAluno.Text == "" && txtRUAluno.Text != "")
+                    {
+                        string sqlBuscarAlunoId = "SELECT ru,nome,sobrenome,curso " +
+                                                   "FROM aluno " +
+                                                   "WHERE ru LIKE '%" + txtRUAluno.Text + "%' ";
+                        MySqlCommand comando = new MySqlCommand(sqlBuscarAlunoId, Conexao);
+                        Conexao.Open();
+                        MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+                        dgwAluno.DataSource = dataTable;
 
+                        PopularDataGridViewAluno();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    Conexao.Close();
+
+                }
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -144,10 +192,25 @@ namespace TrabalhoFacul
 
         private void btnDeletarAluno_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void dgwAluno_CellContentClick(object sender, DataGridViewCellEventArgs e)
+          
+            if (!string.IsNullOrEmpty(txtRUAluno.Text))
+            {
+                // Itera pelas linhas do DataGridView para encontrar a linha correspondente
+                foreach (DataGridViewRow row in dgwAluno.Rows)
+                {
+                    // Supondo que o ID ou nome esteja na primeira coluna, altere o índice se necessário
+                    if (row.Cells[0].Value != null && row.Cells[0].Value.ToString().Equals(ru))
+                    {
+                        // Remove a linha correspondente
+                        dgwAluno.Rows.Remove(row);
+                        MessageBox.Show("Registro excluído com sucesso!");
+                        break;
+                        PopularDataGridViewAluno();
+                    }
+                }
+            }
+          }
+            private void dgwAluno_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -169,7 +232,7 @@ namespace TrabalhoFacul
 
         private void txtRUAluno_TextChanged(object sender, EventArgs e)
         {
-
+            //int ru = txtRUAluno.Text.Length;
         }
 
         private void txtNomeProfessor_TextChanged(object sender, EventArgs e)
@@ -207,6 +270,11 @@ namespace TrabalhoFacul
         }
 
         private void dgwProfessor_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

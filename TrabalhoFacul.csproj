@@ -105,6 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditarAluno01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarAluno01.Designer.cs">
+      <DependentUpon>EditarAluno01.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EditarAluno01.resx">
+      <DependentUpon>EditarAluno01.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editarCadastro.resx">
       <DependentUpon>editarCadastro.cs</DependentUpon>
     </EmbeddedResource>
