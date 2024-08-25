@@ -255,5 +255,10 @@ namespace TrabalhoFacul
         {
 
         }
+
+        private void txtRuCadastro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
