@@ -168,6 +168,7 @@ namespace TrabalhoFacul
 
                     MessageBox.Show("Curso incluído com sucesso!");
                     LimparCampos();
+                    PopularDataGridViewCursos();
                 }
                 catch (Exception ex)
                 {

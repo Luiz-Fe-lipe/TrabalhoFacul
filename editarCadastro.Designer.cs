@@ -88,6 +88,7 @@
             this.txtNomeAluno.Name = "txtNomeAluno";
             this.txtNomeAluno.Size = new System.Drawing.Size(306, 26);
             this.txtNomeAluno.TabIndex = 2;
+            this.txtNomeAluno.TextChanged += new System.EventHandler(this.txtNomeAluno_TextChanged);
             // 
             // dgwAluno
             // 
@@ -138,6 +139,7 @@
             this.txtRUAluno.Name = "txtRUAluno";
             this.txtRUAluno.Size = new System.Drawing.Size(106, 29);
             this.txtRUAluno.TabIndex = 8;
+            this.txtRUAluno.TextChanged += new System.EventHandler(this.txtRUAluno_TextChanged);
             // 
             // label2
             // 
@@ -157,6 +159,7 @@
             this.txtRUProfessor.Name = "txtRUProfessor";
             this.txtRUProfessor.Size = new System.Drawing.Size(124, 29);
             this.txtRUProfessor.TabIndex = 12;
+            this.txtRUProfessor.TextChanged += new System.EventHandler(this.txtRUProfessor_TextChanged);
             // 
             // label3
             // 
@@ -175,6 +178,7 @@
             this.txtNomeProfessor.Name = "txtNomeProfessor";
             this.txtNomeProfessor.Size = new System.Drawing.Size(306, 26);
             this.txtNomeProfessor.TabIndex = 10;
+            this.txtNomeProfessor.TextChanged += new System.EventHandler(this.txtNomeProfessor_TextChanged);
             // 
             // label4
             // 
@@ -224,6 +228,7 @@
             this.dgwProfessor.ReadOnly = true;
             this.dgwProfessor.Size = new System.Drawing.Size(446, 320);
             this.dgwProfessor.TabIndex = 16;
+            this.dgwProfessor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProfessor_CellContentClick);
             // 
             // btnLimparProfessor
             // 
@@ -233,6 +238,7 @@
             this.btnLimparProfessor.TabIndex = 19;
             this.btnLimparProfessor.Text = "Professor";
             this.btnLimparProfessor.UseVisualStyleBackColor = true;
+            this.btnLimparProfessor.Click += new System.EventHandler(this.btnLimparProfessor_Click);
             // 
             // btnLimparAluno
             // 
@@ -242,6 +248,7 @@
             this.btnLimparAluno.TabIndex = 20;
             this.btnLimparAluno.Text = "Aluno";
             this.btnLimparAluno.UseVisualStyleBackColor = true;
+            this.btnLimparAluno.Click += new System.EventHandler(this.btnLimparAluno_Click);
             // 
             // btnLimparTodos
             // 
@@ -251,6 +258,7 @@
             this.btnLimparTodos.TabIndex = 21;
             this.btnLimparTodos.Text = "Todos";
             this.btnLimparTodos.UseVisualStyleBackColor = true;
+            this.btnLimparTodos.Click += new System.EventHandler(this.btnLimparTodos_Click);
             // 
             // label5
             // 
@@ -300,6 +308,7 @@
             this.txtCursoAluno.Name = "txtCursoAluno";
             this.txtCursoAluno.Size = new System.Drawing.Size(306, 26);
             this.txtCursoAluno.TabIndex = 24;
+            this.txtCursoAluno.TextChanged += new System.EventHandler(this.txtCursoAluno_TextChanged);
             // 
             // txtCursoProfessor
             // 
@@ -308,6 +317,7 @@
             this.txtCursoProfessor.Name = "txtCursoProfessor";
             this.txtCursoProfessor.Size = new System.Drawing.Size(306, 26);
             this.txtCursoProfessor.TabIndex = 26;
+            this.txtCursoProfessor.TextChanged += new System.EventHandler(this.txtCursoProfessor_TextChanged);
             // 
             // label6
             // 
