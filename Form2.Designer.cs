@@ -162,7 +162,6 @@
             this.txtRuCadastro.Name = "txtRuCadastro";
             this.txtRuCadastro.Size = new System.Drawing.Size(149, 20);
             this.txtRuCadastro.TabIndex = 50;
-            this.txtRuCadastro.TextChanged += new System.EventHandler(this.txtRuCadastro_TextChanged);
             // 
             // btnCadastrar
             // 
