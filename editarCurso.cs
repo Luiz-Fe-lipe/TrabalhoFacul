@@ -321,14 +321,15 @@ namespace TrabalhoFacul
                 {
                     Conexao.Open();
                     //Condição IF para validar que se o usuário está escrevendo o nome da disciplina ou o ID.
-                    if (tbDisciplina.Text != "" || tbIdDisciplina.Text == "")
+                    if (tbDisciplina.Text != "" && tbIdDisciplina.Text == "")
                     {
                         string sql_delete_disciplina = "DELETE FROM disciplina WHERE nome_disciplina = " + tbDisciplina.Text + " ";
                         MySqlCommand comando = new MySqlCommand(sql_delete_disciplina, Conexao);
                         comando.ExecuteReader();
                         MessageBox.Show("Aluno apagado do banco de dados!");
+                        PopularDataGridViewDisciplina();
                     }
-                    else if (tbIdDisciplina.Text == "" || tbIdDisciplina.Text != "")
+                    else if (tbIdDisciplina.Text == "" && tbIdDisciplina.Text != "")
                     {
                         string sql_delete_disciplina_id = "DELETE FROM disciplina WHERE id = " + tbIdDisciplina.Text + " ";
                         MySqlCommand comando = new MySqlCommand(sql_delete_disciplina_id, Conexao);
@@ -372,7 +373,7 @@ namespace TrabalhoFacul
 
         private void btnAdDisciplina_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbDisciplina.Text) || string.IsNullOrEmpty(tbIdDisciplina.Text))
+            if (string.IsNullOrEmpty(tbDisciplina.Text) && string.IsNullOrEmpty(tbIdDisciplina.Text))
             {
                 MessageBox.Show("Preencha ao menos um dos camposde pesquisa", "Campo obrigatorio ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tbDisciplina.Focus();
@@ -398,6 +399,7 @@ namespace TrabalhoFacul
 
                     MessageBox.Show("Curso incluído com sucesso!");
                     LimparCampos();
+                    PopularDataGridViewDisciplina();
                 }
                 catch (Exception ex)
                 {
@@ -441,9 +443,9 @@ namespace TrabalhoFacul
                     Conexao = new MySqlConnection(data_source);
                     if (tbDisciplina.Text != "" && tbIdDisciplina.Text == "")
                     {
-                        string sqlBuscarDisciplinaNome = "SELECT curso " +
-                                                    "FROM curso " +
-                                                    "WHERE curso LIKE '%" + tbDisciplina.Text + "%' ";
+                        string sqlBuscarDisciplinaNome = "SELECT nome_disciplina " +
+                                                    "FROM disciplina " +
+                                                    "WHERE nome_disciplina LIKE '%" + tbDisciplina.Text + "%' ";
                         MySqlCommand comando = new MySqlCommand(sqlBuscarDisciplinaNome, Conexao);
                         Conexao.Open();
                         MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
@@ -453,9 +455,9 @@ namespace TrabalhoFacul
                     }
                     else if (tbNomeCurso.Text == "" && tbIdCurso.Text != "")
                     {
-                        string sqlBuscarDisciplinaId = "SELECT curso " +
-                                                    "FROM curso " +
-                                                    "WHERE curso LIKE '%" + tbIdDisciplina.Text + "%' ";
+                        string sqlBuscarDisciplinaId = "SELECT nome_disciplina " +
+                                                    "FROM disciplina " +
+                                                    "WHERE id LIKE '%" + tbIdDisciplina.Text + "%' ";
                         MySqlCommand comando = new MySqlCommand(sqlBuscarDisciplinaId, Conexao);
                         Conexao.Open();
                         MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
