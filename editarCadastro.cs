@@ -128,7 +128,8 @@ namespace TrabalhoFacul
 
         private void editarCadastro_Load(object sender, EventArgs e)
         {
-
+            PopularDataGridViewProfessor();
+            PopularDataGridViewAluno();
         }
 
         private void label4_Click(object sender, EventArgs e)
