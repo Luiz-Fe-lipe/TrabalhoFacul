@@ -60,8 +60,15 @@ namespace TrabalhoFacul
         private void AbrirMenu()
         {
             edita menu = new edita();
-            menu.ShowDialog();
-            this.Close(); ;
+            menu.Show();
+            this.Hide(); ;
+        }
+
+        private void RedefSenha()
+        {
+            RedefinirSenha redefsenha = new RedefinirSenha();
+            redefsenha.Show();
+            
         }
 
         private string ValidarLogin(int ru, string senha)
@@ -101,6 +108,12 @@ namespace TrabalhoFacul
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RedefSenha();
+            this.Hide(); ;
         }
     }
 }

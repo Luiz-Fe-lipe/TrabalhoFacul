@@ -172,7 +172,7 @@ namespace TrabalhoFacul
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    
                 }
                 finally
                 {
@@ -404,7 +404,7 @@ namespace TrabalhoFacul
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+
                 }
                 finally
                 {
@@ -481,7 +481,7 @@ namespace TrabalhoFacul
 
         private void tbIdCurso_TextChanged_1(object sender, EventArgs e)
         {
-
+            int ru = tbIdCurso.Text.Length;
         }
     }
 }
