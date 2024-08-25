@@ -176,7 +176,7 @@ namespace TrabalhoFacul
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+
                 }
                 finally
                 {
