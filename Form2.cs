@@ -16,6 +16,7 @@ using Google.Protobuf.WellKnownTypes;
 using System.Diagnostics.Eventing.Reader;
 using K4os.Compression.LZ4.Streams.Adapters;
 
+
 namespace TrabalhoFacul
 {
     public partial class FormCadastro : Form
