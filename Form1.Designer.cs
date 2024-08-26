@@ -44,7 +44,7 @@
             // txtRuLogin
             // 
             this.txtRuLogin.Location = new System.Drawing.Point(239, 69);
-            this.txtRuLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRuLogin.Margin = new System.Windows.Forms.Padding(4);
             this.txtRuLogin.Name = "txtRuLogin";
             this.txtRuLogin.Size = new System.Drawing.Size(241, 22);
             this.txtRuLogin.TabIndex = 0;
@@ -65,7 +65,7 @@
             // 
             this.pictureBox1.Image = global::TrabalhoFacul.Properties.Resources._3289576_individual_man_people_person_107097;
             this.pictureBox1.Location = new System.Drawing.Point(36, 32);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(161, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -87,7 +87,7 @@
             // txtSenhaLogin
             // 
             this.txtSenhaLogin.Location = new System.Drawing.Point(239, 135);
-            this.txtSenhaLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSenhaLogin.Margin = new System.Windows.Forms.Padding(4);
             this.txtSenhaLogin.Name = "txtSenhaLogin";
             this.txtSenhaLogin.PasswordChar = '*';
             this.txtSenhaLogin.Size = new System.Drawing.Size(241, 22);
@@ -98,7 +98,7 @@
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
             this.btnLogin.Location = new System.Drawing.Point(239, 201);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(100, 36);
             this.btnLogin.TabIndex = 19;
@@ -111,7 +111,7 @@
             this.btnFormCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFormCadastro.ForeColor = System.Drawing.Color.Black;
             this.btnFormCadastro.Location = new System.Drawing.Point(372, 201);
-            this.btnFormCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFormCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.btnFormCadastro.Name = "btnFormCadastro";
             this.btnFormCadastro.Size = new System.Drawing.Size(109, 36);
             this.btnFormCadastro.TabIndex = 20;
@@ -159,10 +159,10 @@
             this.Controls.Add(this.txtRuLogin);
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

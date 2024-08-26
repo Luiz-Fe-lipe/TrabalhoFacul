@@ -30,7 +30,11 @@ namespace TrabalhoFacul
             formcadastro.Show();
         }
 
-        
+        private void RedefSenha()
+        {
+            RedefinirSenha redsenha= new RedefinirSenha();
+            redsenha.Show();
+        }
 
         private void btnFormCadastro_Click(object sender, EventArgs e)
         {
@@ -43,13 +47,23 @@ namespace TrabalhoFacul
             string login = txtRuLogin.Text;
             int ru = Int32.Parse(login);
             string senha = txtSenhaLogin.Text;
-            string nome = ValidarLogin(ru, senha);
+            var resultado = ValidarLogin(ru, senha);
 
-            if (nome != null)
+            if (resultado.HasValue)
             {
-                MessageBox.Show($"Bem-vindo {nome}");
-                AbrirMenu();
-                this.Hide();
+                var (nome, token) = resultado.Value;
+                if (token == "0")
+                {
+                    MessageBox.Show($"Bem-vindo Aluno {nome}");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show($"Bem-vindo Professor {nome}");
+                    this.Hide();
+                }
+
+
             }
             else
             {
@@ -57,21 +71,7 @@ namespace TrabalhoFacul
             }
         }
 
-        private void AbrirMenu()
-        {
-            edita menu = new edita();
-            menu.Show();
-            this.Hide(); ;
-        }
-
-        private void RedefSenha()
-        {
-            RedefinirSenha redefsenha = new RedefinirSenha();
-            redefsenha.Show();
-            
-        }
-
-        private string ValidarLogin(int ru, string senha)
+        private (string nome, string token)? ValidarLogin(int ru, string senha)
         {
             try
             {
@@ -79,21 +79,24 @@ namespace TrabalhoFacul
                 {
                     conn.Open();
                     // Alterei a consulta SQL para buscar o nome do usuário
-                    string query = "SELECT nome FROM usuario WHERE ru = @ru AND senha = @senha";
+                    string query = "SELECT nome, token FROM usuario WHERE ru = @ru AND senha = @senha";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@ru", ru);
                         cmd.Parameters.AddWithValue("@senha", senha);
 
-                        object result = cmd.ExecuteScalar();
-
-                        if (result != null)
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            return result.ToString();
-                        }
-                        else
-                        {
-                            return null;
+                            if (reader.Read())
+                            {
+                                string nome = reader["nome"].ToString();
+                                string token = reader["token"].ToString();
+                                return (nome, token);
+                            }
+                            else
+                            {
+                                return null;
+                            }
                         }
                     }
                 }
@@ -105,15 +108,15 @@ namespace TrabalhoFacul
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RedefSenha();
-            this.Hide(); ;
+            this.Hide();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

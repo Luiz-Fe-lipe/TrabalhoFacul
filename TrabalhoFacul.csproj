@@ -172,6 +172,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RedefinirSenha.resx">
+      <DependentUpon>RedefinirSenha.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Form1.datasource" />
     <None Include="Properties\DataSources\Form3.datasource" />
@@ -326,6 +329,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tela de fundo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cadeado1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
