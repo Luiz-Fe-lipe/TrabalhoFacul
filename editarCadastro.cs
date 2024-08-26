@@ -278,5 +278,10 @@ namespace TrabalhoFacul
         {
 
         }
+
+        private void editarCadastro_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

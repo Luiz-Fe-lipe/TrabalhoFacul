@@ -342,6 +342,7 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "editarCadastro";
             this.Text = "Editar Cadastro";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.editarCadastro_FormClosed);
             this.Load += new System.EventHandler(this.editarCadastro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwAluno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProfessor)).EndInit();
