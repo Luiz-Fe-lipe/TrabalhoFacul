@@ -155,7 +155,7 @@ namespace TrabalhoFacul
                 Conexao = new MySqlConnection(data_source);
            
                     string sqlBuscarCursoNome = "  DELETE FROM usuario " + 
-                                                "  WHERE ru = " + txtRUAluno+  " ;
+                                                "  WHERE ru = " + txtRUAluno    ;
                     MySqlCommand comando = new MySqlCommand(sqlBuscarCursoNome, Conexao);
                     Conexao.Open();
                     MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
@@ -249,9 +249,6 @@ namespace TrabalhoFacul
             PopularDataGridViewAluno();
         }
 
-        private void editarCadastro_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
+       
     }
 }
