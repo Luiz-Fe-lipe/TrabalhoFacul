@@ -21,5 +21,15 @@ namespace TrabalhoFacul
         {
 
         }
+
+        private void EditarAluno01_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
