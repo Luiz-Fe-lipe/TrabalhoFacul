@@ -36,6 +36,18 @@ namespace TrabalhoFacul
             redsenha.Show();
         }
 
+        private void EditaProf()
+        {
+            editarCadastro edprof = new editarCadastro();
+            edprof.Show();
+        }
+
+        private void EditaAlu()
+        {
+            EditarAluno01 edalu = new EditarAluno01();
+            edalu.Show();
+        }
+
         private void btnFormCadastro_Click(object sender, EventArgs e)
         {
             AbrirCadastro();
@@ -55,11 +67,13 @@ namespace TrabalhoFacul
                 if (token == "0")
                 {
                     MessageBox.Show($"Bem-vindo Aluno {nome}");
+                    EditaAlu();
                     this.Hide();
                 }
                 else
                 {
                     MessageBox.Show($"Bem-vindo Professor {nome}");
+                    EditaProf();
                     this.Hide();
                 }
 
