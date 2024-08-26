@@ -415,19 +415,9 @@ namespace TrabalhoFacul
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            edita voltar = new edita();
-            voltar.ShowDialog();
-            this.Hide();    
-        }
+       
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            edita voltar = new edita();
-            voltar.ShowDialog();
-            this.Close();
-        }
+      
 
         private void btnBuDisciplina_Click(object sender, EventArgs e)
         {

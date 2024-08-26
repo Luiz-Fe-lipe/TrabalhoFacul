@@ -123,12 +123,6 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="edita.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="edita.Designer.cs">
-      <DependentUpon>edita.cs</DependentUpon>
-    </Compile>
     <Compile Include="editarCadastro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,9 +160,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="edita.resx">
-      <DependentUpon>edita.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

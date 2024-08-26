@@ -216,17 +216,6 @@
             this.dvgDisciplina.TabIndex = 34;
             this.dvgDisciplina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgDisciplina_CellContentClick);
             // 
-            // btnVoltar
-            // 
-            this.btnVoltar.AutoSize = true;
-            this.btnVoltar.Location = new System.Drawing.Point(12, 12);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(79, 35);
-            this.btnVoltar.TabIndex = 35;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.button1_Click);
-            // 
             // btnBuscar
             // 
             this.btnBuscar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
