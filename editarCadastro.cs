@@ -248,5 +248,10 @@ namespace TrabalhoFacul
         {
             PopularDataGridViewAluno();
         }
+
+        private void editarCadastro_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
