@@ -153,15 +153,16 @@ namespace TrabalhoFacul
             try
             {
                 Conexao = new MySqlConnection(data_source);
-           
-                    string sqlBuscarCursoNome = "  DELETE FROM usuario " + 
-                                                "  WHERE ru = " + txtRUAluno    ;
+
+                string sqlBuscarCursoNome = "DELETE FROM usuario " +
+                                            "WHERE ru = " + txtRUAluno.Text + " ";
                     MySqlCommand comando = new MySqlCommand(sqlBuscarCursoNome, Conexao);
                     Conexao.Open();
                     MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
-               
+                    MessageBox.Show("Apagado com sucesso");
+
             }
             catch (Exception ex)
             {
@@ -197,8 +198,7 @@ namespace TrabalhoFacul
 
         private void txtRUAluno_TextChanged(object sender, EventArgs e)
         {
-            string login = txtRUAluno.Text;
-            int ru = Int32.Parse(login);
+            
         }
 
         private void txtNomeProfessor_TextChanged(object sender, EventArgs e)
