@@ -31,5 +31,10 @@ namespace TrabalhoFacul
         {
 
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

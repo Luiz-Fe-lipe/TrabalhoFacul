@@ -118,5 +118,10 @@ namespace TrabalhoFacul
                 MessageBox.Show("Usuario não encontrado");
             }
         }
+
+        private void RedefinirSenha_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
