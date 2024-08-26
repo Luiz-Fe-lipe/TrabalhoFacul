@@ -113,6 +113,7 @@
             // btn_red_senha
             // 
             this.btn_red_senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_red_senha.ForeColor = System.Drawing.Color.IndianRed;
             this.btn_red_senha.Location = new System.Drawing.Point(298, 229);
             this.btn_red_senha.Name = "btn_red_senha";
             this.btn_red_senha.Size = new System.Drawing.Size(237, 42);
