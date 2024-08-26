@@ -149,6 +149,9 @@
     <Compile Include="RedefinirSenha.Designer.cs">
       <DependentUpon>RedefinirSenha.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditarAluno01.resx">
+      <DependentUpon>EditarAluno01.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editarCadastro.resx">
       <DependentUpon>editarCadastro.cs</DependentUpon>
     </EmbeddedResource>
