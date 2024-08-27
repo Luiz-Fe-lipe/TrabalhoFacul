@@ -19,12 +19,7 @@ namespace TrabalhoFacul
             InitializeComponent();
         }
 
-        private void btnVoltarCadastro_Click(object sender, EventArgs e)
-        {
-            edita voltar = new edita();
-            voltar.ShowDialog();
-            this.Hide();
-        }
+        
 
         public MySqlConnection Conexao { get; set; }
         public int row_selected { get; private set; }
@@ -38,9 +33,7 @@ namespace TrabalhoFacul
             txtCursoAluno.Text = string.Empty;
             txtRUAluno.Text = string.Empty;
 
-            txtNomeProfessor.Text = string.Empty;
-            txtCursoProfessor.Text = string.Empty;
-            txtRUProfessor.Text = string.Empty;
+           
         }
 
 
@@ -55,7 +48,7 @@ namespace TrabalhoFacul
                 Conexao.Open();
 
                 //comando SQL que será executado 
-                string sql_selectDisciplina = "SELECT * FROM aluno ORDER BY nome ";
+                string sql_selectDisciplina = "SELECT * FROM usuario ORDER BY nome ";
 
                 //cria o objeto com comando SQl e a conexão
 
@@ -81,41 +74,7 @@ namespace TrabalhoFacul
                 Conexao.Close();
             }
         }
-        private void PopularDataGridViewProfessor()
-        {
-            Conexao = new MySqlConnection(data_source);
-            try
-            {
-                //Abrindo a conexão com o banco de dados.
-                Conexao.Open();
-
-                //comando SQL que será executado 
-                string sql_selectDisciplina = "SELECT * FROM professor ORDER BY nome";
-
-                //cria o objeto com comando SQl e a conexão
-
-                MySqlCommand exibeDisciplina = new MySqlCommand(sql_selectDisciplina, Conexao);
-
-                //cria o objeto dataTable para armazenar o resultado do comando SQL
-                DataTable dataTable = new DataTable();
-
-                //Adapta os dados que serão enviados a partir do MYSQL para o gridview
-
-                MySqlDataAdapter dataAdapterDisciplina = new MySqlDataAdapter(exibeDisciplina);
-                dataAdapterDisciplina.Fill(dataTable);
-
-                //selecionando os o datagridview que possui o nome "dvgDados" e atribui o dataTable
-                dgwProfessor.DataSource = dataTable;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao conectar no banco de dados: " + ex.Message);
-            }
-            finally
-            {
-                Conexao.Close();
-            }
-        }
+       
 
         private void btnBuscarAluno_Click(object sender, EventArgs e)
         {
@@ -176,7 +135,6 @@ namespace TrabalhoFacul
 
         private void editarCadastro_Load(object sender, EventArgs e)
         {
-            PopularDataGridViewProfessor();
             PopularDataGridViewAluno();
         }
 
@@ -192,25 +150,33 @@ namespace TrabalhoFacul
 
         private void btnDeletarAluno_Click(object sender, EventArgs e)
         {
-          
-            if (!string.IsNullOrEmpty(txtRUAluno.Text))
+            try
             {
-                // Itera pelas linhas do DataGridView para encontrar a linha correspondente
-                foreach (DataGridViewRow row in dgwAluno.Rows)
-                {
-                    // Supondo que o ID ou nome esteja na primeira coluna, altere o índice se necessário
-                    if (row.Cells[0].Value != null && row.Cells[0].Value.ToString().Equals(ru))
-                    {
-                        // Remove a linha correspondente
-                        dgwAluno.Rows.Remove(row);
-                        MessageBox.Show("Registro excluído com sucesso!");
-                        break;
-                        PopularDataGridViewAluno();
-                    }
-                }
+                Conexao = new MySqlConnection(data_source);
+
+                string sqlBuscarCursoNome = "DELETE FROM usuario " +
+                                            "WHERE ru = " + txtRUAluno.Text + " ";
+                    MySqlCommand comando = new MySqlCommand(sqlBuscarCursoNome, Conexao);
+                    Conexao.Open();
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
+                    DataTable dataTable = new DataTable();
+                    dataAdapter.Fill(dataTable);
+                    MessageBox.Show("Apagado com sucesso");
+
             }
-          }
-            private void dgwAluno_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Conexao.Close();
+
+            }
+
+        }
+           
+        private void dgwAluno_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -232,7 +198,7 @@ namespace TrabalhoFacul
 
         private void txtRUAluno_TextChanged(object sender, EventArgs e)
         {
-            //int ru = txtRUAluno.Text.Length;
+            
         }
 
         private void txtNomeProfessor_TextChanged(object sender, EventArgs e)
@@ -262,13 +228,7 @@ namespace TrabalhoFacul
             txtRUAluno.Text = string.Empty;
         }
 
-        private void btnLimparProfessor_Click(object sender, EventArgs e)
-        {
-            txtNomeProfessor.Text = string.Empty;
-            txtCursoProfessor.Text = string.Empty;
-            txtRUProfessor.Text = string.Empty;
-        }
-
+      
         private void dgwProfessor_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -278,5 +238,17 @@ namespace TrabalhoFacul
         {
 
         }
+
+        private void editarCadastro_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void btnExibirTodos_Click(object sender, EventArgs e)
+        {
+            PopularDataGridViewAluno();
+        }
+
+       
     }
 }

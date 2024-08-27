@@ -44,7 +44,10 @@ namespace TrabalhoFacul
             dtCadastro.CustomFormat = "dd/MM/yyyy";
             dtCadastro.Value=DateTime.Now;
 
+            mtxtTelefoneCadastro.KeyPress += new KeyPressEventHandler(mtxtTelefoneCadastro_KeyPress);
             txtRuCadastro.KeyPress += new KeyPressEventHandler(txtRuCadastro_KeyPress);
+
+
         }
 
         private void txtRuCadastro_KeyPress(object sender, KeyPressEventArgs e)
@@ -53,8 +56,19 @@ namespace TrabalhoFacul
             {
                 e.Handled = true;
 
-                MessageBox.Show("Somente Numeros");
+                MessageBox.Show("Somente numeros no campo RU");
             }            
+        }
+
+
+        private void mtxtTelefoneCadastro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+
+                MessageBox.Show("Somente numeros no campo telefone");
+            }
         }
 
         private void txtNomeCadastro_TextChanged(object sender, EventArgs e)
@@ -72,9 +86,13 @@ namespace TrabalhoFacul
             sobrenome = txtSobrenomeCadastro.Text;
         }
 
-        private void txtTelefoneCadastro_TextChanged(object sender, EventArgs e)
+        private void mtxtTelefoneCadastro_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            telefone=txtTelefoneCadastro.Text;
+            
+        }
+        private void mtxtTelefoneCadastro_TextChanged(object sender, EventArgs e)
+        {
+            telefone = mtxtTelefoneCadastro.Text;
         }
 
         private void rbtFeminino_CheckedChanged(object sender, EventArgs e)
@@ -200,7 +218,7 @@ namespace TrabalhoFacul
             txtEmailCadastro.Clear();
             txtNomeCadastro.Clear();
             txtSobrenomeCadastro.Clear();
-            txtTelefoneCadastro.Clear();
+            mtxtTelefoneCadastro.Clear();
             txtRuCadastro.Clear();
             rbtFeminino.Checked = false;
             rbtMasculino.Checked = false;
@@ -256,5 +274,6 @@ namespace TrabalhoFacul
         {
             ru = txtRuCadastro.Text;
         }
+
     }
 }

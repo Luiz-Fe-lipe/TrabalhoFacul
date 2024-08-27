@@ -27,7 +27,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastro));
             this.rbtFeminino = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtTelefoneCadastro = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSobrenomeCadastro = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.btFechar = new System.Windows.Forms.Button();
             this.lblSenha = new System.Windows.Forms.Label();
             this.gbDados = new System.Windows.Forms.GroupBox();
+            this.mtxtTelefoneCadastro = new System.Windows.Forms.MaskedTextBox();
             this.dtCadastro = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.cbCursos = new System.Windows.Forms.ComboBox();
@@ -78,14 +78,6 @@
             this.label5.TabIndex = 28;
             this.label5.Text = "Telefone";
             this.label5.Click += new System.EventHandler(this.lblTelefone_Click);
-            // 
-            // txtTelefoneCadastro
-            // 
-            this.txtTelefoneCadastro.Location = new System.Drawing.Point(161, 62);
-            this.txtTelefoneCadastro.Name = "txtTelefoneCadastro";
-            this.txtTelefoneCadastro.Size = new System.Drawing.Size(150, 20);
-            this.txtTelefoneCadastro.TabIndex = 55;
-            this.txtTelefoneCadastro.TextChanged += new System.EventHandler(this.txtTelefoneCadastro_TextChanged);
             // 
             // label4
             // 
@@ -260,6 +252,7 @@
             // gbDados
             // 
             this.gbDados.BackColor = System.Drawing.Color.Transparent;
+            this.gbDados.Controls.Add(this.mtxtTelefoneCadastro);
             this.gbDados.Controls.Add(this.dtCadastro);
             this.gbDados.Controls.Add(this.label7);
             this.gbDados.Controls.Add(this.cbCursos);
@@ -282,7 +275,6 @@
             this.gbDados.Controls.Add(this.label3);
             this.gbDados.Controls.Add(this.label5);
             this.gbDados.Controls.Add(this.txtSobrenomeCadastro);
-            this.gbDados.Controls.Add(this.txtTelefoneCadastro);
             this.gbDados.Controls.Add(this.label4);
             this.gbDados.Location = new System.Drawing.Point(4, 4);
             this.gbDados.Name = "gbDados";
@@ -291,8 +283,19 @@
             this.gbDados.TabStop = false;
             this.gbDados.Text = "Dados";
             // 
+            // mtxtTelefoneCadastro
+            // 
+            this.mtxtTelefoneCadastro.Location = new System.Drawing.Point(158, 62);
+            this.mtxtTelefoneCadastro.Mask = "(00)00000-0000";
+            this.mtxtTelefoneCadastro.Name = "mtxtTelefoneCadastro";
+            this.mtxtTelefoneCadastro.Size = new System.Drawing.Size(155, 20);
+            this.mtxtTelefoneCadastro.TabIndex = 64;
+            this.mtxtTelefoneCadastro.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtxtTelefoneCadastro_MaskInputRejected);
+            this.mtxtTelefoneCadastro.TextChanged += new System.EventHandler(this.mtxtTelefoneCadastro_TextChanged);
+            // 
             // dtCadastro
             // 
+            this.dtCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtCadastro.Location = new System.Drawing.Point(158, 26);
             this.dtCadastro.Name = "dtCadastro";
             this.dtCadastro.Size = new System.Drawing.Size(155, 20);
@@ -366,7 +369,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RadioButton rbtFeminino;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtTelefoneCadastro;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSobrenomeCadastro;
         private System.Windows.Forms.Label label3;
@@ -390,5 +392,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbCursos;
         private System.Windows.Forms.DateTimePicker dtCadastro;
+        private System.Windows.Forms.MaskedTextBox mtxtTelefoneCadastro;
     }
 }

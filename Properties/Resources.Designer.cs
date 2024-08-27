@@ -83,6 +83,16 @@ namespace TrabalhoFacul.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cadeado {
+            get {
+                object obj = ResourceManager.GetObject("cadeado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap deadpool {
             get {
                 object obj = ResourceManager.GetObject("deadpool", resourceCulture);
