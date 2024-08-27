@@ -88,7 +88,7 @@
             // 
             // btnDeletarAluno
             // 
-            this.btnDeletarAluno.Location = new System.Drawing.Point(782, 178);
+            this.btnDeletarAluno.Location = new System.Drawing.Point(849, 178);
             this.btnDeletarAluno.Name = "btnDeletarAluno";
             this.btnDeletarAluno.Size = new System.Drawing.Size(87, 56);
             this.btnDeletarAluno.TabIndex = 6;
@@ -99,7 +99,7 @@
             // txtRUAluno
             // 
             this.txtRUAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRUAluno.Location = new System.Drawing.Point(816, 111);
+            this.txtRUAluno.Location = new System.Drawing.Point(883, 111);
             this.txtRUAluno.Name = "txtRUAluno";
             this.txtRUAluno.Size = new System.Drawing.Size(106, 29);
             this.txtRUAluno.TabIndex = 8;
@@ -109,7 +109,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(683, 114);
+            this.label2.Location = new System.Drawing.Point(750, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 24);
             this.label2.TabIndex = 7;

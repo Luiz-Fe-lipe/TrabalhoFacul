@@ -47,6 +47,7 @@
             this.txtRuLogin.Name = "txtRuLogin";
             this.txtRuLogin.Size = new System.Drawing.Size(182, 20);
             this.txtRuLogin.TabIndex = 0;
+            this.txtRuLogin.TextChanged += new System.EventHandler(this.txtRuLogin_TextChanged);
             // 
             // lblRu
             // 
