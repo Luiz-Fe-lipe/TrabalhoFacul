@@ -253,8 +253,15 @@ namespace TrabalhoFacul
         {
 
         }
+
+        private void pbSair_Click(object sender, EventArgs e)
+        {
+            Form1 voltar = new Form1();
+            voltar.Show();
+            this.Hide();
+        }
     }
-    }
+}
 
     
 

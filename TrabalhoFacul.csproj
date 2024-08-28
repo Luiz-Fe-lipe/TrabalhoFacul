@@ -327,5 +327,14 @@
   <ItemGroup>
     <None Include="Resources\delete_4219.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exitdoor_87195.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exitdoor_871951.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exitdoor_871952.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

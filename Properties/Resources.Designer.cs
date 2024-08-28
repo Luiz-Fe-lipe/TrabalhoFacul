@@ -133,6 +133,36 @@ namespace TrabalhoFacul.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exitdoor_87195 {
+            get {
+                object obj = ResourceManager.GetObject("exitdoor_87195", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exitdoor_871951 {
+            get {
+                object obj = ResourceManager.GetObject("exitdoor_871951", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exitdoor_871952 {
+            get {
+                object obj = ResourceManager.GetObject("exitdoor_871952", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pessoa_icone {
             get {
                 object obj = ResourceManager.GetObject("pessoa icone", resourceCulture);
