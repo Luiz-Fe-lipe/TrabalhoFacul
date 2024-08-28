@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace TrabalhoFacul
 {
@@ -20,56 +21,47 @@ namespace TrabalhoFacul
             "database=cadastros;" +
             "username=admin;" +
             "password=manga5661;";
+
+
         public MySqlConnection Conexao { get; set; }
         
-        public string nome { get; private set; }
-        public int RU { get; private set; } // ID do usuário
-
-
-        /*private void PopularDataGridViewAluno()
+       public void populaGridView()
         {
-
-            
-            Conexao = new MySqlConnection(data_source);
             try
             {
-                //Abrindo a conexão com o banco de dados.
-                Conexao.Open();
 
-                //comando SQL que será executado 
-                string sql_selectDisciplina = "SELECT * " +
-                    "FROM usuario " +
-                    "where ru =  @ru ";
+                Conexao = new MySqlConnection(data_source);
 
-                //cria o objeto com comando SQl e a conexão
+                string selecionar_senha = "SELECT nome, email,senha FROM usuario where ru = " + tbRu.Text + "";
+                MySqlCommand exibeDisciplina = new MySqlCommand(selecionar_senha, Conexao);
 
-                MySqlCommand exibeDisciplina = new MySqlCommand(sql_selectDisciplina, Conexao);
 
-                //cria o objeto dataTable para armazenar o resultado do comando SQL
                 DataTable dataTable = new DataTable();
 
-                //Adapta os dados que serão enviados a partir do MYSQL para o gridview
 
                 MySqlDataAdapter dataAdapterDisciplina = new MySqlDataAdapter(exibeDisciplina);
                 dataAdapterDisciplina.Fill(dataTable);
 
-                //selecionando os o datagridview que possui o nome "dvgDados" e atribui o dataTable
                 dgwUsuario.DataSource = dataTable;
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao conectar no banco de dados: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
             finally
             {
                 Conexao.Close();
+
             }
-        }*/
+        }
+
+        
         public EditarAluno01()
         {
             InitializeComponent();
         }
-
+        string novaSenha = "";
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -87,7 +79,7 @@ namespace TrabalhoFacul
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            
+
 
         }
         private void button2_Click(object sender, EventArgs e)
@@ -107,10 +99,10 @@ namespace TrabalhoFacul
 
         }
 
-      
+
         private void EditarAluno01_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -148,26 +140,15 @@ namespace TrabalhoFacul
                 string selecionar_senha = "SELECT nome, email,senha FROM usuario where ru = " + tbRu.Text + "";
                 MySqlCommand exibeDisciplina = new MySqlCommand(selecionar_senha, Conexao);
 
-                //cria o objeto dataTable para armazenar o resultado do comando SQL
+                
                 DataTable dataTable = new DataTable();
 
-                //Adapta os dados que serão enviados a partir do MYSQL para o gridview
 
                 MySqlDataAdapter dataAdapterDisciplina = new MySqlDataAdapter(exibeDisciplina);
                 dataAdapterDisciplina.Fill(dataTable);
 
-                //selecionando os o datagridview que possui o nome "dvgDados" e atribui o dataTable
                 dgwUsuario.DataSource = dataTable;
-                /*
-                using (SqlCommand command = new SqlCommand(selecionar_senha, conexao))
-                {
-                    using (SqlDataReader reader = selecionar_senha.ExecuteReader())
-                    {
-                        tbSenhaAtual.Text = reader["Email"].ToString();
-                        tbSenhaAtual.Text = reader["Senha"].ToString();
-                    }
-                }
-                */
+                               
             }
             catch (Exception ex)
             {
@@ -179,5 +160,73 @@ namespace TrabalhoFacul
 
             }
         }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            novaSenha = tbNovaSenha.Text;
+            try
+            {
+                if(tbNovaSenha.Text != "")
+               
+                using (MySqlConnection Conexao = new MySqlConnection(data_source))
+                {
+                        Conexao.Open();
+
+                    string AtualizaSenha = "UPDATE usuario" +
+                            " SET senha = " + novaSenha +
+                           "WHERE ru = " + tbRu.Text + "";
+                    using (MySqlCommand cmd = new MySqlCommand(AtualizaSenha, Conexao))
+                    {
+                        MessageBox.Show("Senha Alterada com sucesso!!");
+                                                }
+                } else MessageBox.Show("Digite uma nova senha");
+                tbNovaSenha.Text = string.Empty;
+                populaGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao conectar ao banco de dados: " + ex.Message);
+
+            }
+
+        }
+
+        private void tbNovaSenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAtualizarEmail_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tbNovaEmail.Text != "")
+                    using (MySqlConnection conn = new MySqlConnection(data_source))
+                    {
+                        conn.Open();
+
+                        string query = "UPDATE email SET emai  = " + tbNovaEmail.Text + "";
+                        using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                        {
+                            MessageBox.Show("Senha Alterada com sucesso!!");
+                        }
+                    }
+                else MessageBox.Show("Digite uma nova senha");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao conectar ao banco de dados: " + ex.Message);
+
+            }
+
+        }
+
+        private void tbNovaEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+    }
+
+    
+

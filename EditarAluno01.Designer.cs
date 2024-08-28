@@ -73,6 +73,7 @@
             this.tbNovaEmail.Name = "tbNovaEmail";
             this.tbNovaEmail.Size = new System.Drawing.Size(187, 26);
             this.tbNovaEmail.TabIndex = 7;
+            this.tbNovaEmail.TextChanged += new System.EventHandler(this.tbNovaEmail_TextChanged);
             // 
             // label4
             // 
@@ -101,6 +102,7 @@
             this.btnAtualizarEmail.TabIndex = 14;
             this.btnAtualizarEmail.Text = "Atualizar";
             this.btnAtualizarEmail.UseVisualStyleBackColor = true;
+            this.btnAtualizarEmail.Click += new System.EventHandler(this.btnAtualizarEmail_Click_1);
             // 
             // btnLimparEmail
             // 
@@ -120,6 +122,7 @@
             this.button1.TabIndex = 20;
             this.button1.Text = "Atualizar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // btnLimparSenha
             // 
@@ -138,6 +141,7 @@
             this.tbNovaSenha.Name = "tbNovaSenha";
             this.tbNovaSenha.Size = new System.Drawing.Size(187, 26);
             this.tbNovaSenha.TabIndex = 18;
+            this.tbNovaSenha.TextChanged += new System.EventHandler(this.tbNovaSenha_TextChanged);
             // 
             // label1
             // 
