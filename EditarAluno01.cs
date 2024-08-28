@@ -17,15 +17,10 @@ namespace TrabalhoFacul
 {
     public partial class EditarAluno01 : Form
     {
-        private string data_source = "datasource=databasepv.cxcs0i2uoy4j.us-east-1.rds.amazonaws.com;" +
-            "database=cadastros;" +
-            "username=admin;" +
-            "password=manga5661;";
-
-
+        private string data_source = "datasource=databasepv.cxcs0i2uoy4j.us-east-1.rds.amazonaws.com;database=cadastros;username=admin;password=manga5661;";
         public MySqlConnection Conexao { get; set; }
-        
-       public void populaGridView()
+
+        public void populaGridView()
         {
             try
             {
@@ -163,30 +158,43 @@ namespace TrabalhoFacul
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            novaSenha = tbNovaSenha.Text;
-            try
+            string login = tbRu.Text;
+            int meuRu = Int32.Parse(login);
+            string novaSenha = tbNovaSenha.Text;
+
+            if (novaSenha != null)
             {
-                if(tbNovaSenha.Text != "")
-               
-                using (MySqlConnection Conexao = new MySqlConnection(data_source))
+                try
                 {
-                        Conexao.Open();
-
-                    string AtualizaSenha = "UPDATE usuario" +
-                            " SET senha = " + novaSenha +
-                           "WHERE ru = " + tbRu.Text + "";
-                    using (MySqlCommand cmd = new MySqlCommand(AtualizaSenha, Conexao))
+                    using (MySqlConnection conn = new MySqlConnection(data_source))
                     {
-                        MessageBox.Show("Senha Alterada com sucesso!!");
-                                                }
-                } else MessageBox.Show("Digite uma nova senha");
-                tbNovaSenha.Text = string.Empty;
-                populaGridView();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao conectar ao banco de dados: " + ex.Message);
+                        conn.Open();
 
+                        string query = "UPDATE usuario SET senha = @novasenha WHERE ru = @ru";
+                        using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@ru", meuRu);
+                            cmd.Parameters.AddWithValue("@novasenha", novaSenha);
+
+                            cmd.ExecuteScalar();
+
+                            conn.Close();
+
+                            MessageBox.Show($"Senha alterada com sucesso!!");
+ 
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar ao banco de dados: " + ex.Message);
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Usuario não encontrado");
             }
 
         }
@@ -198,25 +206,43 @@ namespace TrabalhoFacul
 
         private void btnAtualizarEmail_Click_1(object sender, EventArgs e)
         {
-            try
+            string meuRu = tbRu.Text;
+            string novoemail = tbNovaEmail.Text;
+
+            if (novoemail != null)
             {
-                if (tbNovaEmail.Text != "")
+                try
+                {
                     using (MySqlConnection conn = new MySqlConnection(data_source))
                     {
                         conn.Open();
 
-                        string query = "UPDATE email SET emai  = " + tbNovaEmail.Text + "";
+                        string query = "UPDATE usuario SET email = @novoemail WHERE ru = @ru";
                         using (MySqlCommand cmd = new MySqlCommand(query, conn))
                         {
-                            MessageBox.Show("Senha Alterada com sucesso!!");
+                            cmd.Parameters.AddWithValue("@ru", meuRu);
+                            cmd.Parameters.AddWithValue("@novoemail", novoemail);
+
+                            cmd.ExecuteScalar();
+
+                            conn.Close();
+
+                            MessageBox.Show("Email alterado com sucesso!!");
+                            populaGridView();
+                            tbNovaEmail.Text = string.Empty;
                         }
                     }
-                else MessageBox.Show("Digite uma nova senha");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao conectar ao banco de dados: " + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar ao banco de dados: " + ex.Message);
 
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Insira um novo Email");
             }
 
         }
