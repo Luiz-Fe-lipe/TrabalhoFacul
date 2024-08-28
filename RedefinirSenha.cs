@@ -123,5 +123,11 @@ namespace TrabalhoFacul
         {
 
         }
+
+        private void btn_voltar_Click(object sender, EventArgs e)
+        {
+            AbrirForm1();
+            this.Hide();
+        }
     }
 }
