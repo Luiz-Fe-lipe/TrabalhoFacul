@@ -180,8 +180,10 @@ namespace TrabalhoFacul
 
                             conn.Close();
 
-                            MessageBox.Show($"Senha alterada com sucesso!!");
- 
+                            MessageBox.Show("Senha alterada com sucesso!!");
+                            populaGridView();
+                            tbNovaEmail.Text = string.Empty;
+
                         }
                     }
                 }
