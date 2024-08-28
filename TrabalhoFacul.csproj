@@ -315,5 +315,17 @@
   <ItemGroup>
     <None Include="Resources\cadeado1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pessoa icone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3289576-individual-man-people-person_1070971.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emblemunreadable_93487.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_4219.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

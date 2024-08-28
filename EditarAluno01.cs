@@ -79,13 +79,13 @@ namespace TrabalhoFacul
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            tbSenhaAtual.Text = string.Empty;
+            
             tbNovaSenha.Text = string.Empty;
         }
 
         private void btnLimparEmail_Click(object sender, EventArgs e)
         {
-            tbEmailAtual.Text = string.Empty;
+            
             tbNovaEmail.Text = string.Empty;
         }
 

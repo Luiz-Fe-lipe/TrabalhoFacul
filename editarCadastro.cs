@@ -91,8 +91,8 @@ namespace TrabalhoFacul
                     Conexao = new MySqlConnection(data_source);
                     if (txtNomeAluno.Text != "" && txtRUAluno.Text == "")
                     {
-                        string sqlBuscarCursoNome = "SELECT  ru,nome,sobrenome,curso " +
-                                                    "FROM aluno " +
+                        string sqlBuscarCursoNome = "SELECT * " +
+                                                    "FROM usuario " +
                                                     "WHERE nome LIKE '%" + txtNomeAluno.Text + "%' ";
                         MySqlCommand comando = new MySqlCommand(sqlBuscarCursoNome, Conexao);
                         Conexao.Open();
@@ -103,8 +103,8 @@ namespace TrabalhoFacul
                     }
                     else if (txtNomeAluno.Text == "" && txtRUAluno.Text != "")
                     {
-                        string sqlBuscarAlunoId = "SELECT ru,nome,sobrenome,curso " +
-                                                   "FROM aluno " +
+                        string sqlBuscarAlunoId = "SELECT * " +
+                                                   "FROM usuario " +
                                                    "WHERE ru LIKE '%" + txtRUAluno.Text + "%' ";
                         MySqlCommand comando = new MySqlCommand(sqlBuscarAlunoId, Conexao);
                         Conexao.Open();
@@ -161,7 +161,9 @@ namespace TrabalhoFacul
                     MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
+                    PopularDataGridViewAluno();
                     MessageBox.Show("Apagado com sucesso");
+                    txtRUAluno.Text = string.Empty;
 
             }
             catch (Exception ex)
@@ -241,7 +243,7 @@ namespace TrabalhoFacul
 
         private void editarCadastro_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void btnExibirTodos_Click(object sender, EventArgs e)

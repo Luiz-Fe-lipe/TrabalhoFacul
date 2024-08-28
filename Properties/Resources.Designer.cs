@@ -73,6 +73,16 @@ namespace TrabalhoFacul.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3289576_individual_man_people_person_1070971 {
+            get {
+                object obj = ResourceManager.GetObject("3289576-individual-man-people-person_1070971", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap aluno {
             get {
                 object obj = ResourceManager.GetObject("aluno", resourceCulture);
@@ -96,6 +106,36 @@ namespace TrabalhoFacul.Properties {
         internal static System.Drawing.Bitmap deadpool {
             get {
                 object obj = ResourceManager.GetObject("deadpool", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete_4219 {
+            get {
+                object obj = ResourceManager.GetObject("delete_4219", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap emblemunreadable_93487 {
+            get {
+                object obj = ResourceManager.GetObject("emblemunreadable_93487", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pessoa_icone {
+            get {
+                object obj = ResourceManager.GetObject("pessoa icone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
